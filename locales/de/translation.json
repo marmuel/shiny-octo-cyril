@@ -1,0 +1,33 @@
+{
+	"app": {
+		"name": "i18nlexoffice"
+	},
+	"nav": {
+		"invoice": "Rechnung",
+		"settings": "Einstellungen",
+		"language": "Sprache",
+		"help": "Hilfe"
+	},
+	"sidebarbutton": {
+		"preview": "Vorschau",
+		"pdf": "PDF",
+		"email": "E-Mail",
+		"default": "Vorlage speichern",
+		"currencylabel": "Währung",
+		"discountlabel": "Rabatt",
+		"discountnone": "Kein Rabatt",
+		"discountflat": "Pauschale",
+		"discountpercent": "Prozent",
+		"shippinglabel": "Versandkosten",
+		"shippingno": "Nein",
+		"shippingyes": "Ja"
+	},
+	"document": {
+		"type": "Rechnung",
+		"fromaddress": "Ihre Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
+		"toaddress": "Rechnungsempfänger Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
+		"nolabel": "Rechnungsnummer",
+		"datelabel": "Rechnungsdatum",
+		"termslabel": "Bedingungen und Bemerkungen (Sichtbar für Ihren Kunden)"
+	}
+}
