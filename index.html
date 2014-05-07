@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		<!-- Optional theme and table-->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-		<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
 
 	</head>
@@ -98,6 +98,7 @@
 					<ul class="nav nav-sidebar actionbuttons">
 						<li>
 							<button id="button-default" class="btn btn-lg btn-default" data-i18n="sidebarbutton.default"></button>
+							
 						</li>
 					</ul>
 
@@ -130,7 +131,7 @@
 								</div>
 							</div>
 
-							<table class="table table-striped" id="document-table">
+							<table class="table table" id="document-table">
 								<thead>
 									<tr>
 										<th>Description</th><th>Quantity</th><th>Unit Price</th><th>Tax</th><th>Amount</th>
@@ -138,13 +139,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td><a href="#"  data-type="textarea" data-pk="10">Apple iPad 64 GB</a></td><td><a href="#"  data-type="textarea" data-pk="11">1</a></td><td><a href="#"  data-type="textarea" data-pk="12">1000.00</a></td><td><a href="#" data-type="textarea" data-pk="13">19%</a></td><td><a href="#"  data-type="textarea" data-pk="14">1190.00</a></td>
+										<td><input type="text">Apple iPad 64 GB</td><td><input type="text">1</td><td><input type="text">1000.00</td><td><input type="text">19%</td><td><input type="text">1190.00</td>
 									</tr>
 									<tr>
-										<td><a href="#" data-type="textarea" data-pk="20">Apple iPad 64 GB</a></td><td><a href="#"  data-type="textarea" data-pk="21">1</a></td><td><a href="#" data-type="textarea" data-pk="22">1000.00</a></td><td><a href="#"  data-type="textarea" data-pk="23">19%</a></td><td><a href="#"  data-type="textarea" data-pk="24">1190.00</a></td>
+										<td><input type="text">Apple iPad 32 GB</td><td><input type="text">1</td><td><input type="text">800.00</td><td><input type="text">19%</td><td><input type="text">979.00</td>
 									</tr>
 									<tr>
-										<td><a href="#"  data-type="textarea" data-pk="30">Apple iPad 64 GB</a></td><td><a href="#" data-type="textarea" data-pk="31">1</a></td><td><a href="#"  data-type="textarea" data-pk="32">1000.00</a></td><td><a href="#"  data-type="textarea" data-pk="33">19%</a></td><td><a href="#" data-type="textarea" data-pk="34">1190.00</a></td>
+										<td><input type="text">Apple iPad 16 GB</td><td><input type="text">1</td><td><input type="text">600.00</td><td><input type="text">19%</td><td><input type="text">779.00</td>
 									</tr>
 								</tbody>
 							</table>
@@ -162,10 +163,10 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<!-- Latest compiled and minified bootstrap JavaScript -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		<script defer src="js/mylibs/script.js"></script>
 		<script defer src="js/libs/i18next-1.7.3.js"></script>
 		<script type="text/javascript" src="js/mylibs/i18nlexoffice.js" ></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.tablednd.js" ></script>
+		<script defer src="js/mylibs/script.js"></script>
 		<!-- end scripts-->
 		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
 		chromium.org/developers/how-tos/chrome-frame-getting-started -->

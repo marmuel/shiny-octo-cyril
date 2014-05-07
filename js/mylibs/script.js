@@ -1,22 +1,10 @@
-$(document).ready(function() { 
-	
-// configuration table x-editable
+$(document).ready(function() {
 
-
-	
- });
-
-$(function(){
-    $('#document-table a').editable({
-        //url: '/post',
-        title: 'Enter Data',
-        rows: 1
-    });
+	// configuration table tablednd
+	$("#document-table").tableDnD();
+	// add class for styling
+	$("#document-table").tableDnD({
+		onDragClass : "myDragClass"
+	});
 });
-
-$.fn.editable.defaults.mode = 'inline';	
-
-
-
-
 
