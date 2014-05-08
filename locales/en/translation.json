@@ -9,10 +9,10 @@
 		"help": "Help"
 	},
 	"sidebarbutton": {
-		"preview": "Preview",
-		"pdf": "PDF",
-		"email": "Email",
-		"default": "Template +",
+		"preview": " Preview",
+		"pdf": " PDF",
+		"email": " Email",
+		"default": " Template",
 		"currencylabel": "Currency",
 		"discountlabel": "Discount",
 		"discountnone": "No",
@@ -29,6 +29,18 @@
 		"nolabel": "Invoice Number",
 		"datelabel": "Date",
 		"termslabel": "Notes and Terms (Visible to your client)"
-	}
+		},
+	"table": {
+		"amount": "Amount",
+		"quantity": "Quantity",
+		"tax": "Tax",
+		"unitprice": "Unit Price",
+		"description": "Description",
+		"addrow": " Product",
+		"product": "Product",
+		"subtotal": "Subtotal",
+		"taxtotal": "Taxes Total",
+		"balance": "Balance"
+	} 
 }
 

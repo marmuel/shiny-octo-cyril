@@ -63,21 +63,27 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar actionbuttons">
 						<li>
-							<button id="button-preview" class="btn btn-lg btn-default" data-i18n="sidebarbutton.preview"></button>
+							<button id="button-preview" class="btn btn-lg btn-default" >
+								<span class="glyphicon glyphicon-search" data-i18n="sidebarbutton.preview"></span>
+							</button>
 
 						</li>
 						<li>
-							<button id="button-pdf" class="btn btn-lg btn-primary" data-i18n="sidebarbutton.pdf"></button>
+							<button id="button-pdf" class="btn btn-lg btn-primary">
+								<span class="glyphicon glyphicon-file" data-i18n="sidebarbutton.pdf"></span>
+							</button>
 						</li>
 						<li>
-							<button id="button-email" class="btn btn-lg btn-success" data-i18n="sidebarbutton.email"></button>
+							<button id="button-email" class="btn btn-lg btn-success">
+								<span class="glyphicon glyphicon-envelope" data-i18n="sidebarbutton.email"></span>
+							</button>
 						</li>
 						<li class="divider"></li>
 					</ul>
 					<ul class="nav nav-sidebar actionbuttons">
 						<li>
 							<label for="currency" data-i18n="sidebarbutton.currencylabel"></label>
-							<select id="currency" class="form-control currency">
+							<select id="currency" class="form-control currency" onChange="SetCurrency();">
 								<option value="USD"> USD US dollar</option><option value="CAD"> CAD Canadian dollar</option><option value="EUR" selected="selected"> EUR Euro</option><option value="GBP"> GBP Pound sterling</option><option value="AUD"> AUD Australian dollar</option><option disabled="disabled">__________________________________</option><option value="AED"> AED United Arab Emirates dirham</option><option value="AFN"> AFN Afghani</option><option value="ALL"> ALL Lek</option><option value="AMD"> AMD Armenian dram</option><option value="ANG"> ANG Netherlands Antillian guilder</option><option value="AOA"> AOA Kwanza</option><option value="ARS"> ARS Argentine peso</option><option value="AWG"> AWG Aruban guilder</option><option value="AZN"> AZN Azerbaijanian manat</option><option value="BAM"> BAM Convertible marks</option><option value="BBD"> BBD Barbados dollar</option><option value="BDT"> BDT Bangladeshi taka</option><option value="BGN"> BGN Bulgarian lev</option><option value="BHD"> BHD Bahraini dinar</option><option value="BIF"> BIF Burundian franc</option><option value="BMD"> BMD Bermudian dollar</option><option value="BND"> BND Brunei dollar</option><option value="BOB"> BOB Boliviano</option><option value="BRL"> BRL Brazilian real</option><option value="BSD"> BSD Bahamian dollar</option><option value="BTN"> BTN Ngultrum</option><option value="BWP"> BWP Pula</option><option value="BZD"> BZD Belize dollar</option><option value="CDF"> CDF Franc Congolais</option><option value="CHF"> CHF Swiss franc</option><option value="CLP"> CLP Chilean peso</option><option value="CNY"> CNY Renminbi</option><option value="COP"> COP Colombian peso</option><option value="CRC"> CRC Costa Rican colon</option><option value="CUP"> CUP Cuban peso</option><option value="CVE"> CVE Cape Verde escudo</option><option value="CZK"> CZK Czech koruna</option><option value="DJF"> DJF Djibouti franc</option><option value="DKK"> DKK Danish krone</option><option value="DOP"> DOP Dominican peso</option><option value="DZD"> DZD Algerian dinar</option><option value="EEK"> EEK Kroon</option><option value="EGP"> EGP Egyptian pound</option><option value="ERN"> ERN Nakfa</option><option value="ETB"> ETB Ethiopian birr</option><option value="FJD"> FJD Fiji dollar</option><option value="FKP"> FKP Falkland Islands pound</option><option value="GEL"> GEL Lari</option><option value="GHS"> GHS Cedi</option><option value="GIP"> GIP Gibraltar pound</option><option value="GMD"> GMD Dalasi</option><option value="GNF"> GNF Guinea franc</option><option value="GTQ"> GTQ Quetzal</option><option value="GYD"> GYD Guyana dollar</option><option value="HKD"> HKD Hong Kong dollar</option><option value="HNL"> HNL Lempira</option><option value="HRK"> HRK Croatian kuna</option><option value="HTG"> HTG Haiti gourde</option><option value="HUF"> HUF Forint</option><option value="IDR"> IDR Rupiah</option><option value="ILS"> ILS New Israeli shekel</option><option value="INR"> INR Indian rupee</option><option value="IQD"> IQD Iraqi dinar</option><option value="IRR"> IRR Iranian rial</option><option value="ISK"> ISK Iceland krona</option><option value="JMD"> JMD Jamaican dollar</option><option value="JOD"> JOD Jordanian dinar</option><option value="JPY"> JPY Japanese yen</option><option value="KES"> KES Kenyan shilling</option><option value="KGS"> KGS Som</option><option value="KHR"> KHR Riel</option><option value="KMF"> KMF Comoro franc</option><option value="KRW"> KRW South Korean won</option><option value="KWD"> KWD Kuwaiti dinar</option><option value="KYD"> KYD Cayman Islands dollar</option><option value="KZT"> KZT Tenge</option><option value="LAK"> LAK Kip</option><option value="LBP"> LBP Lebanese pound</option><option value="LKR"> LKR Sri Lanka rupee</option><option value="LRD"> LRD Liberian dollar</option><option value="LSL"> LSL Loti</option><option value="LTL"> LTL Lithuanian litas</option><option value="LVL"> LVL Latvian lats</option><option value="LYD"> LYD Libyan dinar</option><option value="MAD"> MAD Moroccan dirham</option><option value="MDL"> MDL Moldovan leu</option><option value="MGA"> MGA Malagasy ariary</option><option value="MKD"> MKD Denar</option><option value="MNT"> MNT Tugrik</option><option value="MOP"> MOP Pataca</option><option value="MRO"> MRO Ouguiya</option><option value="MUR"> MUR Mauritius rupee</option><option value="MVR"> MVR Rufiyaa</option><option value="MWK"> MWK Kwacha</option><option value="MXN"> MXN Mexican peso</option><option value="MYR"> MYR Malaysian ringgit</option><option value="MZN"> MZN Metical</option><option value="NAD"> NAD Namibian dollar</option><option value="NGN"> NGN Naira</option><option value="NIO"> NIO Cordoba oro</option><option value="NOK"> NOK Norwegian krone</option><option value="NPR"> NPR Nepalese rupee</option><option value="NZD"> NZD New Zealand dollar</option><option value="OMR"> OMR Rial Omani</option><option value="PAB"> PAB Balboa</option><option value="PEN"> PEN Nuevo sol</option><option value="PGK"> PGK Kina</option><option value="PHP"> PHP Philippine peso</option><option value="PKR"> PKR Pakistan rupee</option><option value="PLN"> PLN Zloty</option><option value="PYG"> PYG Guarani</option><option value="QAR"> QAR Qatari rial</option><option value="RON"> RON Romanian new leu</option><option value="RSD"> RSD Serbian dinar</option><option value="RUB"> RUB Russian ruble</option><option value="RWF"> RWF Rwanda franc</option><option value="SAR"> SAR Saudi riyal</option><option value="SBD"> SBD Solomon Islands dollar</option><option value="SCR"> SCR Seychelles rupee</option><option value="SDG"> SDG Sudanese pound</option><option value="SEK"> SEK Swedish krona</option><option value="SGD"> SGD Singapore dollar</option><option value="SHP"> SHP Saint Helena pound</option><option value="SKK"> SKK Slovak koruna</option><option value="SLL"> SLL Leone</option><option value="SRD"> SRD Surinam dollar</option><option value="SSP"> SSP South Sudanese pound</option><option value="STD"> STD Dobra</option><option value="SYP"> SYP Syrian pound</option><option value="SZL"> SZL Lilangeni</option><option value="THB"> THB Baht</option><option value="TJS"> TJS Somoni</option><option value="TMM"> TMM Manat</option><option value="TND"> TND Tunisian dinar</option><option value="TOP"> TOP Pa'anga</option><option value="TRY"> TRY Turkish Lira</option><option value="TTD"> TTD Trinidad and Tobago dollar</option><option value="TWD"> TWD New Taiwan dollar</option><option value="TZS"> TZS Tanzanian shilling</option><option value="UAH"> UAH Hryvnia</option><option value="UGX"> UGX Uganda shilling</option><option value="UYU"> UYU Peso Uruguayo</option><option value="UZS"> UZS Uzbekistan som</option><option value="VEF"> VEF Venezuelan bolívar fuerte</option><option value="VND"> VND Vietnamese đồng</option><option value="VUV"> VUV Vatu</option><option value="WST"> WST Samoan tala</option><option value="XAF"> XAF CFA franc BEAC</option><option value="XCD"> XCD East Caribbean dollar</option><option value="XOF"> XOF CFA Franc BCEAO</option><option value="XPF"> XPF CFP franc</option><option value="YER"> YER Yemeni rial</option><option value="ZAR"> ZAR South African rand</option><option value="ZMK"> ZMK Kwacha</option>
 							</select>
 						</li>
@@ -97,8 +103,10 @@
 					</ul>
 					<ul class="nav nav-sidebar actionbuttons">
 						<li>
-							<button id="button-default" class="btn btn-lg btn-default" data-i18n="sidebarbutton.default"></button>
-							
+							<button id="button-default" class="btn btn-lg btn-default" >
+								<span class="glyphicon glyphicon-floppy-disk" data-i18n="sidebarbutton.default"></span>
+							</button>
+
 						</li>
 					</ul>
 
@@ -131,25 +139,66 @@
 								</div>
 							</div>
 
-							<table class="table table" id="document-table">
+							<table class="table" id="document-table">
 								<thead>
 									<tr>
-										<th>Description</th><th>Quantity</th><th>Unit Price</th><th>Tax</th><th>Amount</th>
+										<th></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.description">Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
 									</tr>
 								</thead>
+								
+								<tfoot>
+									<tr  class="nodrag">
+										<td colspan="4" style="cursor: default;" class="nodrag">
+										<button id="button-rowadd" class="btn btn-primary">
+											<span class="glyphicon glyphicon-plus" data-i18n="table.addrow"></span>
+										</button></td>
+										<td class="nodrag">										<textarea type="text" class="table-inputs" data-i18n="table.subtotal" style="cursor: default;"></textarea></td>
+										<td style="cursor: default;" class="nodrag">
+										<input data-key="subtotal" class="table-inputs sub-total" disabled="disabled" value="0">
+										</td>
+										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+									</tr>
+									<tr class="nodrag">
+										<td colspan="4" class="balance" style="cursor: default;" class="nodrag"></td>
+										<td class="nodrag">	<textarea type="text" class="table-inputs tax" data-i18n="table.taxtotal" style="cursor: default;"></textarea></td>
+										<td  style="cursor: default;" class="nodrag">
+										<input data-key="tax-total" class="table-inputs tax-total" disabled="disabled" value="0">
+										</td>
+										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+									</tr>
+
+									<tr class="nodrag">
+										<td colspan="4" class="balance" style="cursor: default;"></td>
+										<td>										<textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default;"></textarea></td>
+										<td  style="cursor: default;">
+										<input data-key="balance" class="table-inputs balance" disabled="disabled" value="0">
+										</td>
+										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+									</tr>
+									
+								</tfoot>
+
 								<tbody>
 									<tr>
-										<td><input type="text">Apple iPad 64 GB</td><td><input type="text">1</td><td><input type="text">1000.00</td><td><input type="text">19%</td><td><input type="text">1190.00</td>
-									</tr>
-									<tr>
-										<td><input type="text">Apple iPad 32 GB</td><td><input type="text">1</td><td><input type="text">800.00</td><td><input type="text">19%</td><td><input type="text">979.00</td>
-									</tr>
-									<tr>
-										<td><input type="text">Apple iPad 16 GB</td><td><input type="text">1</td><td><input type="text">600.00</td><td><input type="text">19%</td><td><input type="text">779.00</td>
+										<td class="dragHandle"></td>
+										<td class="product-column"><textarea type="text" data-key="description" class="table-inputs product" data-i18n="table.product"></textarea></td>
+										<td class="quantity-column">
+										<input data-key="quantity" class="table-inputs" type="number" value="1">
+										</td><td class="netprice-column">
+										<input data-key="netprice" class="table-inputs" autocomplete="off" value="0">
+										</td><td class="tax1-column">
+										<input  data-key="tax1" class="table-inputs" autocomplete="off" value="0%">
+										</td><td class="grossprice-column">
+										<input disabled="disabled" data-key="grossprice" class="table-inputs" autocomplete="off" value="0">
+										</td>
+										
+										<td class="table-controls"><button class="btn btn-danger glyphicon glyphicon-trash remove-row" href="#"></button></td>										
 									</tr>
 								</tbody>
-							</table>
+								
+								
 
+							</table>
 							<div class="col-md-12">
 								<textarea id="document-terms" class="document-inputs address" data-i18n="document.termslabel"></textarea>
 							</div>

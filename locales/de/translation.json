@@ -9,10 +9,10 @@
 		"help": "Hilfe"
 	},
 	"sidebarbutton": {
-		"preview": "Vorschau",
-		"pdf": "PDF",
-		"email": "E-Mail",
-		"default": "Vorlage +",
+		"preview": " Vorschau",
+		"pdf": " PDF",
+		"email": " E-Mail",
+		"default": " Vorlage",
 		"currencylabel": "Währung",
 		"discountlabel": "Rabatt",
 		"discountnone": "Kein Rabatt",
@@ -29,5 +29,17 @@
 		"nolabel": "Rechnungsnummer",
 		"datelabel": "Rechnungsdatum",
 		"termslabel": "Bedingungen und Bemerkungen (Sichtbar für Ihren Kunden)"
+	},
+	"table": {
+		"amount": "Gesamtbetrag",
+		"quantity": "Menge",
+		"tax": "Mehrwertsteuer",
+		"unitprice": "Einzelpreis",
+		"description": "Beschreibung",
+		"addrow": " Produkt",
+		"product": "Produkt oder Service",
+		"subtotal": "Nettopreis",
+		"taxtotal": "Mehrwertsteuer",
+		"balance": "Bruttopreis"
 	}
 }

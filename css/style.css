@@ -154,8 +154,73 @@ input[type=date] {
 }
 .address {
 	height: 120px;
+	margin-bottom: 10px;
 }
-
+/* 
+ * document table
+ */
+#document-table{
+	max-width: 95%;
+    margin-left: 25px;
+}
 .myDragClass{
 	background-color:#fcf8e3 !important;
 }
+
+.header-inputs, .table-inputs{
+	padding: 5px;
+	margin-top: 10px;
+	width: 100%;
+	border: none;
+	overflow: hidden;
+	word-wrap: break-word;
+	resize: none;
+	line-height: 1em;
+}
+
+.header-inputs:hover, .table-inputs:hover{
+	background: #fcf8e3;
+border: none;
+box-shadow: none;
+}
+.table-functions{
+	margin:0px 0px 20px 25px;
+}
+.balance{
+	border-top: 0px !important;
+}
+.sub-total:hover, .balance:hover, .tax-total:hover, .currency-label:hover{
+	background-color: #fff;
+}
+
+.table-move{
+margin-top: 5px;
+}
+img.table-move{
+	padding-right: 10px
+}
+td.dragHandle {
+    
+}
+
+td.showDragHandle {
+	background-image: url(../img/draghandle.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: move;
+}
+.remove-row{
+	margin-top: 8px;
+}
+.currency-column{
+	width: 10%;
+}
+.product-column{
+	width: 40%;
+}
+.quantity-column{
+	width: 10%;
+}
+ .grossprice-column, .netprice-column, .tax1-column {
+ 	width: 15%;
+ }
