@@ -40,6 +40,8 @@
 		"product": "Produkt oder Service",
 		"subtotal": "Nettopreis",
 		"taxtotal": "Mehrwertsteuer",
-		"balance": "Bruttopreis"
+		"balance": "Bruttopreis",
+		"discount": "Rabatt",
+		"shipping": "Versandkosten"
 	}
 }

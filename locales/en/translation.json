@@ -40,7 +40,9 @@
 		"product": "Product",
 		"subtotal": "Subtotal",
 		"taxtotal": "Taxes Total",
-		"balance": "Balance"
+		"balance": "Balance",
+		"discount": "Discount",
+		"shipping": "Shipping"
 	} 
 }
 
