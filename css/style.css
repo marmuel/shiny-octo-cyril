@@ -213,14 +213,25 @@ td.showDragHandle {
 	margin-top: 8px;
 }
 .currency-column{
-	width: 10%;
+	width: 1%;
 }
 .product-column{
-	width: 40%;
+	width: 38%;
 }
 .quantity-column{
 	width: 10%;
 }
- .grossprice-column, .netprice-column, .tax1-column {
+.tax1-column {
+ width: 17%;
+}
+ .grossprice-column, .tax1-column {
  	width: 15%;
  }
+ .netprice-column{
+ 	width: 15%;
+ }
+ .dragHandle{
+ 	width: 1%;
+ }
+
+ 
