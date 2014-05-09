@@ -148,7 +148,7 @@
 							<table class="table" id="document-table">
 								<thead>
 									<tr>
-										<th class="dragHandle"></th><th><textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
+										<th class="dragHandle"></th><th><textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs tax2-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
 									</tr>
 								</thead>
 								
@@ -193,7 +193,9 @@
 										</td><td class="netprice-column">
 										<input data-key="netprice" class="table-inputs" autocomplete="off" value="0">
 										</td><td class="tax1-column">
-										<input  data-key="tax1" class="table-inputs" autocomplete="off" value="0%">
+										<input  data-key="tax1" class="table-inputs tax1-row" autocomplete="off" value="0%">
+										</td><td class="tax2-column">
+										<input  data-key="tax2" class="table-inputs tax2-row" autocomplete="off" value="0%">
 										</td><td class="grossprice-column">
 										<input disabled="disabled" data-key="grossprice" class="table-inputs" autocomplete="off" value="0">
 										</td>

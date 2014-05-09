@@ -221,10 +221,10 @@ td.showDragHandle {
 .quantity-column{
 	width: 10%;
 }
-.tax1-column {
+.tax1-column, tax2-column {
  width: 17%;
 }
- .grossprice-column, .tax1-column {
+ .grossprice-column {
  	width: 15%;
  }
  .netprice-column{
