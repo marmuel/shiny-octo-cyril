@@ -77,7 +77,7 @@ function SetShipping(){
 	var ship = $('#shipping')[0].selectedIndex;
 	if (ship.val == 0) {
 		return false;
-	} else {}	
+	} else {
 	if($(".shipping row").length != 0) {
     	console.log('ist da');
         return false;
@@ -85,7 +85,7 @@ function SetShipping(){
 AddShipping();
 console.log('ist nicht da');
 }
-}
+}}
 // add row for discount
 function AddDiscount() {
 	
