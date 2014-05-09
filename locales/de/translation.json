@@ -20,7 +20,11 @@
 		"discountpercent": "Prozent",
 		"shippinglabel": "Versandkosten",
 		"shippingno": "Nein",
-		"shippingyes": "Ja"
+		"shippingyes": "Ja",
+		"taxlabel": "Mehrwertsteuer",
+		"taxnone": "Keine MwSt.",
+		"tax1": "Mit MwSt.",
+		"tax2": ""
 	},
 	"document": {
 		"type": "Rechnung",

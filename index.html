@@ -88,6 +88,12 @@
 							</select>
 						</li>
 						<li>
+							<label for="tax" data-i18n="sidebarbutton.taxlabel"></label>
+							<select id="tax" class="form-control tax" onChange="SetTax();">
+								<option value="tax-none" selected="selected" data-i18n="sidebarbutton.taxnone"></option><option value="1 Tax" data-i18n="sidebarbutton.tax1"></option><option value="2 Taxes" data-i18n="sidebarbutton.tax2"></option>
+							</select>
+						</li>
+						<li>
 							<label for="discount" data-i18n="sidebarbutton.discountlabel"></label>
 							<select id="discount" class="form-control discount" onChange="SetDiscount();">
 								<option value="discount-none" selected="selected" data-i18n="sidebarbutton.discountnone"></option><option value="discount-flat" data-i18n="sidebarbutton.discountflat"></option><option value="discount-flat" data-i18n="sidebarbutton.discountpercent"></option>
@@ -142,7 +148,7 @@
 							<table class="table" id="document-table">
 								<thead>
 									<tr>
-										<th class="dragHandle"></th><th><textarea type="text" class="header-inputs" data-i18n="table.description">Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
+										<th class="dragHandle"></th><th><textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
 									</tr>
 								</thead>
 								
@@ -159,8 +165,8 @@
 										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
 									</tr>
 									<tr class="nodrag">
-										<td colspan="4" class="balance" style="cursor: default;" class="nodrag"></td>
-										<td class="nodrag">	<textarea type="text" class="table-inputs tax" data-i18n="table.taxtotal" style="cursor: default;"></textarea></td>
+										<td colspan="4" class="noline" style="cursor: default;" class="nodrag"></td>
+										<td class="nodrag">	<textarea type="text" class="table-inputs tax1-row" data-i18n="table.taxtotal" style="cursor: default;"></textarea></td>
 										<td  style="cursor: default;" class="nodrag">
 										<input data-key="tax-total" class="table-inputs tax-total" disabled="disabled" value="0">
 										</td>
@@ -168,7 +174,7 @@
 									</tr>
 
 									<tr class="nodrag">
-										<td colspan="4" class="balance" style="cursor: default;"></td>
+										<td colspan="4" class="noline" style="cursor: default;"></td>
 										<td>										<textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default;"></textarea></td>
 										<td  style="cursor: default;">
 										<input data-key="balance" class="table-inputs balance" disabled="disabled" value="0">
@@ -181,7 +187,7 @@
 								<tbody>
 									<tr>
 										<td class="dragHandle"></td>
-										<td class="product-column"><textarea type="text" data-key="description" class="table-inputs product" data-i18n="table.product"></textarea></td>
+										<td class="product-column"><textarea type="text" data-key="description" class="table-inputs product" data-i18n="table.product" contentEditable="true"></textarea></td>
 										<td class="quantity-column">
 										<input data-key="quantity" class="table-inputs" type="number" value="1">
 										</td><td class="netprice-column">
@@ -215,6 +221,7 @@
 		<script defer src="js/libs/i18next-1.7.3.js"></script>
 		<script type="text/javascript" src="js/mylibs/i18nlexoffice.js" ></script>
 		<script type="text/javascript" src="js/libs/jquery.tablednd.js" ></script>
+		<script type="text/javascript" src="js/libs/jquery.autosize.min.js" ></script>
 		<script defer src="js/mylibs/script.js"></script>
 		<!-- end scripts-->
 		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

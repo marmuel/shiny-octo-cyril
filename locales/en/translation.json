@@ -20,7 +20,11 @@
 		"discountpercent": "Discount Percent",
 		"shippinglabel": "Shipping",
 		"shippingno": "No",
-		"shippingyes": "Yes"
+		"shippingyes": "Yes",
+		"taxlabel": "Tax",
+		"taxnone": "No",
+		"tax1": "1 Tax",
+		"tax2": "2 Taxes"
 	},
 	"document": {
 		"type": "Invoice",

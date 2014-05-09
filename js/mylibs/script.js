@@ -12,11 +12,13 @@ $(document).ready(function() {
 	});
    // add currency to labels
     SetCurrency();
+   // set all textareas to autosize
+    $('textarea').autosize();   
 });
 
 // add row
 $("#button-rowadd").click(function() {
-	var newRow = "<tr>" + "<td class='dragHandle'></td>" + "<td><textarea type='text' data-key='description' class='table-inputs product' data-i18n='table.product'></textarea></td>" + "<td><input data-key='quantity' class='table-inputs' type='number' value='1'></td>" + "<td><input data-key='netprice' class='table-inputs' autocomplete='off' value='0'></td>" + "<td><input data-key='tax1' class='table-inputs' autocomplete='off' value='0%'></td>" + "<td><input disabled='disabled' data-key='grossprice' class='table-inputs' autocomplete='off' value='0'></td>" + "<td class='table-controls'><button class='btn btn-danger glyphicon glyphicon-trash remove-row' href='#'></button></td>" + "</tr>";
+	var newRow = "<tr>" + "<td class='dragHandle'></td>" + "<td><textarea type='text' data-key='description' class='table-inputs product' data-i18n='table.product'></textarea></td>" + "<td><input data-key='quantity' class='table-inputs' type='number' value='1'></td>" + "<td><input data-key='netprice' class='table-inputs' autocomplete='off' value='0'></td>" + "<td  class='tax1-column'><input data-key='tax1' class='table-inputs ' autocomplete='off' value='0%'></td>" + "<td><input disabled='disabled' data-key='grossprice' class='table-inputs' autocomplete='off' value='0'></td>" + "<td class='table-controls'><button class='btn btn-danger glyphicon glyphicon-trash remove-row' href='#'></button></td>" + "</tr>";
 	$('#document-table tr:last').after(newRow);
 	// configuration table tablednd
 	$("#document-table").tableDnD();
@@ -74,14 +76,11 @@ function SetDiscount() {
 }
 
 
-// HIER GEHTS WEITER
+// Shipping or not?
 function SetShipping() {
 	var shiprow = $(".shipping-row").length != 0;
 	var shipsettings = $("#shipping option:selected").index();
-	console.log(shipsettings);
-	console.log(shiprow);
 	if (shipsettings == 0) {
-		console.log('aus');
 		if ($(".shipping-row").length == 0) {
 			return false;
 		} else {
@@ -90,7 +89,6 @@ function SetShipping() {
 		}
 
 	} else {
-		console.log('an');
 		if ($(".shipping-row").length != 0) {
 			return false;
 		} else {
@@ -99,22 +97,6 @@ function SetShipping() {
 
 	}
 
-}
-
-
-
-// add row for discount
-function AddDiscount() {
-	
-	var i = 0;
-	var newDiscount = "<tr>" + "<td colspan='4' style='cursor: default;' class='nodrag'>" + "<td class='nodrag'><textarea type='text' class='table-inputs discount-row' data-i18n='table.discount' style='cursor: default;'></textarea></td>" 
-	+ "<td style='cursor: default;' class='nodrag'><input data-key='subtotal' class='table-inputs discount-total' disabled='disabled' value='0'></td>"
-    + "<td style='cursor: default;' class='nodrag' currency-column'><textarea type='text' class='table-inputs currency-label' style='cursor: default;' disabled='disabled'></textarea></td>"
-	+ "</tr>";
-	$('#document-table > tfoot > tr').eq(i).after(newDiscount);
-	$(".discount-row").i18n();
-	
-	SetCurrency();
 }
 function AddShipping() {
     	
@@ -128,4 +110,70 @@ function AddShipping() {
 	
 	SetCurrency();
 
+}
+
+
+// Discount or not?
+function SetDiscount() {
+	var disprow = $(".discount-row").length != 0;
+	var dissettings = $("#discount option:selected").index();
+	if (dissettings == 0) {
+		if ($(".discount-row").length == 0) {
+			return false;
+		} else {
+			$(".discount-row").parents('tr').remove();
+
+		}
+	} else {
+		$(".discount-row").parents('tr').remove();
+		if (dissettings == 1) {
+			if ($(".discount-row").length != 0) {
+				return false;
+			} else {
+				
+				AddDiscountFlat();
+			}
+		} else {
+			$(".discount-row").parents('tr').remove();
+			if (dissettings == 2) {
+				if ($(".discount-row").length != 0) {
+					return false;
+				} else {
+					
+					AddDiscountPercent();
+				}
+			}
+
+		}
+	}
+}
+
+// discount flat
+function AddDiscountFlat() {
+	
+	var i = 0;
+	var newDiscount = "<tr>" + "<td colspan='4' style='cursor: default;' class='nodrag noline'>" + "<td class='nodrag'><textarea type='text' class='table-inputs discount-row' data-i18n='table.discount' style='cursor: default;'></textarea></td>" 
+	+ "<td style='cursor: default;' class='nodrag'><input data-key='subtotal' class='table-inputs discount-total' disabled='disabled' value='0'></td>"
+    + "<td style='cursor: default;' class='nodrag' currency-column'><textarea type='text' class='table-inputs currency-label' style='cursor: default;' disabled='disabled'></textarea></td>"
+	+ "</tr>";
+	$('#document-table > tfoot > tr').eq(i).after(newDiscount);
+	$(".discount-row").i18n();
+	
+	SetCurrency();
+}
+// discount percent
+function AddDiscountPercent() {
+	
+	var i = 0;
+	var newDiscount = "<tr>" + "<td colspan='4' style='cursor: default;' class='nodrag noline'>" + "<td class='nodrag'><textarea type='text' class='table-inputs discount-row' data-i18n='table.discount' style='cursor: default;'></textarea></td>" 
+	+ "<td style='cursor: default;' class='nodrag'><input data-key='subtotal' class='table-inputs discount-total' disabled='disabled' value='0'></td>"
+    + "<td style='cursor: default;' class='nodrag' currency-column'><textarea type='text' class='table-inputs' style='cursor: default;'>0%</textarea></td>"
+	+ "</tr>";
+	$('#document-table > tfoot > tr').eq(i).after(newDiscount);
+	$(".discount-row").i18n();
+
+}
+
+function SetTax(){
+	// do stuff here
 }
