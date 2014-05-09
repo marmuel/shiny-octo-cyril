@@ -62,4 +62,11 @@ $("#document-table").on('click', ".remove-row", function() {
 function SetCurrency() {
    var cur = $('#currency').val();
    $('textarea.currency-label').val(cur); 
+
+}
+// add second tax  
+function addTaxColumn (){  
+$('#document-table').find('tr').each(function(){
+        $(this).find('td').eq(3).after('<td>new cell added</td>');
+   });
 }
