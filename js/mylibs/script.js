@@ -72,7 +72,7 @@ function SetDiscount() {
    	 AddDiscount();
    }
 }
-// HIER GEHTS WEITER !!!!
+// HIER GEHTS WEITER !!
 function SetShipping(){
 	var ship = $('#shipping')[0].selectedIndex;
 	if (ship.val == 0) {
