@@ -160,8 +160,8 @@ input[type=date] {
  * document table
  */
 #document-table{
-	max-width: 95%;
-    margin-left: 25px;
+	max-width: 100%;
+    margin-left: 0px;
 }
 .myDragClass{
 	background-color:#fcf8e3 !important;
@@ -216,12 +216,12 @@ td.showDragHandle {
 	width: 1%;
 }
 .product-column{
-	width: 38%;
+	width: 30%;
 }
 .quantity-column{
-	width: 10%;
+	width: 11%;
 }
-.tax1-column, tax2-column {
+.tax1-column, .tax2-column {
  width: 17%;
 }
  .grossprice-column {
