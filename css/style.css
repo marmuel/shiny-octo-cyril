@@ -8,7 +8,7 @@ body {
 }
 
 /*
- * Global add-ons
+ * Global
  */
 
 .sub-header {
@@ -189,7 +189,7 @@ box-shadow: none;
 .noline{
 	border-top: 0px !important;
 }
-.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover{
+.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover{
 	background-color: #fff;
 }
 
@@ -233,5 +233,7 @@ td.showDragHandle {
  .dragHandle{
  	width: 1%;
  }
-
+#button-rowadd{
+	margin-left: 20px;
+}
  

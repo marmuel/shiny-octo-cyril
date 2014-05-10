@@ -153,39 +153,52 @@
 								</thead>
 								
 								<tfoot>
-									<tr  class="nodrag">
+									<tr class="nodrag">
 										<td colspan="3" style="cursor: default;" class="nodrag">
 										<button id="button-rowadd" class="btn btn-primary">
-											<span class="glyphicon glyphicon-plus" data-i18n="table.addrow"></span>
+											<span class="glyphicon glyphicon-plus" data-i18n="table.addrow"> Product</span>
 										</button></td>
-										<td class="nodrag">										<textarea type="text" class="table-inputs" data-i18n="table.subtotal" style="cursor: default;"></textarea></td>
+										<td class="nodrag">										<textarea type="text" class="table-inputs" data-i18n="table.subtotal" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Subtotal</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag">
 										<input data-key="subtotal" class="table-inputs sub-total" disabled="disabled" value="0">
 										</td>
+										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
+									</tr>
+									<tr class="nodrag"><td colspan="3" style="cursor: default;" class="nodrag noline"></td>
+										<td class="nodrag"><textarea type="text" class="table-inputs shipping-row" data-i18n="table.shipping" style="cursor: default;">Shipping</textarea></td>
+										<td style="cursor: default;" class="nodrag"></td>
+										<td style="cursor: default;" class="nodrag"></td>
+										<td style="cursor: default;" class="nodrag"><input data-key="subtotal" class="table-inputs shipping-total" value="0"></td>
 										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+										</tr>
+									<tr class="nodrag"><td colspan="3" style="cursor: default;" class="nodrag noline"></td><td class="nodrag"><textarea type="text" class="table-inputs discount-row" data-i18n="table.discount" style="cursor: default;">Discount</textarea></td>
+										<td style="cursor: default;" class="nodrag"></td>
+										<td style="cursor: default;" class="nodrag"></td>
+										<td style="cursor: default;" class="nodrag"><input data-key="subtotal" class="table-inputs discount-total" value="0"></td>
+										<td style="cursor: default;" class="nodrag"><textarea type="text" class="table-inputs discount-row-label" style="cursor: default;" disabled="disabled"></textarea></td>
 									</tr>
 									<tr class="nodrag">
-										<td colspan="3" class="noline" style="cursor: default;" class="nodrag"></td>
-										<td class="nodrag">	<textarea type="text" class="table-inputs tax1-row" data-i18n="table.taxtotal" style="cursor: default;"></textarea></td>
+										<td colspan="3" class="noline" style="cursor: default;"></td>
+										<td class="nodrag">	<textarea type="text" class="table-inputs tax1-row" data-i18n="table.taxtotal" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Taxes Total</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
-										<td  style="cursor: default;" class="nodrag">
+										<td style="cursor: default;" class="nodrag">
 										<input data-key="tax-total" class="table-inputs tax-total" disabled="disabled" value="0">
 										</td>
-										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
 									</tr>
 
 									<tr class="nodrag">
 										<td colspan="3" class="noline" style="cursor: default;"></td>
-										<td>										<textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default;"></textarea></td>
+										<td><textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Balance</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
-										<td  style="cursor: default;">
+										<td style="cursor: default;">
 										<input data-key="balance" class="table-inputs balance" disabled="disabled" value="0">
 										</td>
-										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
 									</tr>
 									
 								</tfoot>
@@ -195,14 +208,14 @@
 										<td class="dragHandle"></td>
 										<td class="product-column"><textarea type="text" data-key="description" class="table-inputs product" data-i18n="table.product" contentEditable="true"></textarea></td>
 										<td class="quantity-column">
-										<input data-key="quantity" class="table-inputs" type="number" value="1"></td><td class="netprice-column">
-										<input data-key="netprice" class="table-inputs" autocomplete="off" value="0">
+										<input data-key="quantity" class="table-inputs quantity" type="number" value="1"></td><td class="netprice-column">
+										<input data-key="unitprice" class="table-inputs unitprice" autocomplete="off" value="0">
 										</td><td class="tax1-column">
 										<input  data-key="tax1" class="table-inputs tax1-row" autocomplete="off" value="0%">
 										</td><td class="tax2-column">
 										<input  data-key="tax2" class="table-inputs tax2-row" autocomplete="off" value="0%">
 										</td><td class="grossprice-column">
-										<input disabled="disabled" data-key="grossprice" class="table-inputs" autocomplete="off" value="0">
+										<input disabled="disabled" data-key="grossprice" class="table-inputs grossprice" autocomplete="off" value="0">
 										</td>
 										
 										<td class="table-controls"><button class="btn btn-danger glyphicon glyphicon-trash remove-row" href="#"></button></td>										

@@ -13,17 +13,26 @@ $(document).ready(function() {
    // add currency to labels
     SetCurrency();
    // set all textareas to autosize
-    $('textarea').autosize();   
+    $('textarea').autosize();  
+    // set discount
+    SetDiscount();
+    SetShipping();
 });
 
 // add row
 $("#button-rowadd").click(function() {
-	var newRow = "<tr>" + "<td class='dragHandle'></td>" + "<td><textarea type='text' data-key='description' class='table-inputs product' data-i18n='table.product'></textarea></td>" + "<td><input data-key='quantity' class='table-inputs' type='number' value='1'></td>" + "<td><input data-key='netprice' class='table-inputs' autocomplete='off' value='0'></td>" + "<td  class='tax1-column'><input data-key='tax1' class='table-inputs tax1-row' autocomplete='off' value='0%'></td>" + "<td  class='tax2-column'><input data-key='tax2' class='table-inputs tax2-row' autocomplete='off' value='0%'></td>" + "<td><input disabled='disabled' data-key='grossprice' class='table-inputs' autocomplete='off' value='0'></td>" + "<td class='table-controls'><button class='btn btn-danger glyphicon glyphicon-trash remove-row' href='#'></button></td>" + "</tr>";
-	
-	
-	
-	
-	$('#document-table tr:last').after(newRow);
+
+var row = $("#document-table tbody>tr:last").clone(true);
+ $("td input:text", row).val(0);
+ $(".quantity", row).val(1);
+ $(".tax1-row", row).val('0%');
+ $(".tax2-row", row).val('0%');
+ 
+ 
+ $(row).fadeIn(400 ,function (){ 
+            row.insertAfter('#document-table tbody>tr:last');
+  });
+ 
 	// configuration table tablednd
 	$("#document-table").tableDnD();
 	// add class for styling
@@ -66,159 +75,68 @@ $("#document-table").on('click', ".remove-row", function() {
 
 // add currency to labels
 function SetCurrency() {
+   var dissettings = $("#discount option:selected").index();
    var cur = $('#currency').val();
-   $('textarea.currency-label').val(cur); 
+   var percent = "%";
+   $('.currency-label').val(cur); 
+   $('.discount-row-label').val(cur); 
+   if (dissettings == 2) {
+   	$('.discount-row-label').val(percent); 
+   } 
 }
-// add or delete row for discount
-function SetDiscount() {
-   var dis = $('#discount')[0].selectedIndex;
-   if (dis.val == 0) {
-   	return false;
-   } else {
-   	 AddDiscount();
-   }
-}
-
-
-// Shipping or not?
-function SetShipping() {
-	var shiprow = $(".shipping-row").length != 0;
-	var shipsettings = $("#shipping option:selected").index();
-	if (shipsettings == 0) {
-		if ($(".shipping-row").length == 0) {
-			return false;
-		} else {
-			$(".shipping-row").parents('tr').remove();
-			
-		}
-
-	} else {
-		if ($(".shipping-row").length != 0) {
-			return false;
-		} else {
-			AddShipping();
-		}
-
-	}
-
-}
-
 
 // Discount or not?
 function SetDiscount() {
-	var disprow = $(".discount-row").length != 0;
 	var dissettings = $("#discount option:selected").index();
+	var drow = $(".discount-row").parents('tr');
 	if (dissettings == 0) {
-		if ($(".discount-row").length == 0) {
-			return false;
-		} else {
-			$(".discount-row").parents('tr').remove();
-
+		    // no discount		
+			$(drow).fadeOut(400 ,function (){ 
+            $(drow).hide();
+            $(".discount-total").val(0);                    
+      });
 		}
+	if (dissettings == 1) {
+		    // discount flat
+			$(drow).fadeIn(400 ,function (){ 
+            $(drow).show(); 
+             });
+			$(drow).i18n();
+			SetCurrency();
+		} 
+	if (dissettings == 2) {
+		    // discount percent
+			$(drow).fadeIn(400 ,function (){ 
+            $(drow).show(); 
+             });
+			$(drow).i18n();
+			SetCurrency();
+}
+}
+
+// Shipping or not?
+function SetShipping() {
+	var shipsettings = $("#shipping option:selected").index();
+	var srow = $(".shipping-row").parents('tr');
+	if (shipsettings == 0) {
+		// no shipping costs		
+		$(srow).fadeOut(400 ,function (){ 
+        $(srow).hide();   
+        $(".shipping-total").val(0);                 
+      });
 	} else {
-		$(".discount-row").parents('tr').remove();
-		if (dissettings == 1) {
-			if ($(".discount-row").length != 0) {
-				return false;
-			} else {
-				
-				AddDiscountFlat();
-			}
-		} else {
-			$(".discount-row").parents('tr').remove();
-			if (dissettings == 2) {
-				if ($(".discount-row").length != 0) {
-					return false;
-				} else {
-					
-					AddDiscountPercent();
-				}
-			}
-
-		}
+		// shipping costs	
+		$(srow).fadeIn(400 ,function (){ 
+       	$(srow).show(); 
+      });
 	}
-}
-
-// discount flat
-function AddDiscountFlat() {
-	
-	var i = 0;
-	var newDiscount = "<tr>" 
-	+ "<td colspan='3' style='cursor: default;' class='nodrag noline'>" 
-	+ "<td class='nodrag'><textarea type='text' class='table-inputs discount-row' data-i18n='table.discount' style='cursor: default;'></textarea></td>" 
-	+ "<td style='cursor: default;' class='nodrag'></td>"
-	+ "<td style='cursor: default;' class='nodrag'></td>"
-	+ "<td style='cursor: default;' class='nodrag'><input data-key='subtotal' class='table-inputs discount-total' disabled='disabled' value='0'></td>"
-    + "<td style='cursor: default;' class='nodrag' currency-column'><textarea type='text' class='table-inputs currency-label' style='cursor: default;' disabled='disabled'></textarea></td>"
-	+ "</tr>";
-	$('#document-table > tfoot > tr').eq(i).after(newDiscount);
-	$(".discount-row").i18n();
-	
-	SetCurrency();
-}
-// discount percent
-function AddDiscountPercent() {
-	
-	var i = 0;
-	var newDiscount = "<tr>" + "<td colspan='3' style='cursor: default;' class='nodrag noline'>" 
-	+ "<td class='nodrag'><textarea type='text' class='table-inputs discount-row' data-i18n='table.discount' style='cursor: default;'></textarea></td>" 
-	+ "<td style='cursor: default;' class='nodrag'></td>"
-	+ "<td style='cursor: default;' class='nodrag'></td>"
-	+ "<td style='cursor: default;' class='nodrag'><input data-key='subtotal' class='table-inputs discount-total' disabled='disabled' value='0'></td>"
-    + "<td style='cursor: default;' class='nodrag' currency-column'><textarea type='text' class='table-inputs' style='cursor: default;'>0%</textarea></td>"
-	+ "</tr>";
-	$('#document-table > tfoot > tr').eq(i).after(newDiscount);
-	$(".discount-row").i18n();
-
-}
-// shipping costs
-function AddShipping() {
-    	
-	var i = 0;
-	var newShipping = "<tr>" + "<td colspan='3' style='cursor: default;' class='nodrag noline'>" 
-	+ "<td class='nodrag'><textarea type='text' class='table-inputs shipping-row' data-i18n='table.shipping' style='cursor: default;'></textarea></td>" 
-	+ "<td style='cursor: default;' class='nodrag'></td>"
-	+ "<td style='cursor: default;' class='nodrag'></td>"
-	+ "<td style='cursor: default;' class='nodrag'><input data-key='subtotal' class='table-inputs shipping-total' disabled='disabled' value='0'></td>"
-    + "<td style='cursor: default;' class='nodrag' currency-column'><textarea type='text' class='table-inputs currency-label' style='cursor: default;' disabled='disabled'></textarea></td>"
-	+ "</tr>";
-	$('#document-table > tfoot > tr').eq(i).after(newShipping);
-	$(".shipping-row").i18n();
-	
-	SetCurrency();
-
 }
 
 function SetTax(){
-	var taxsettings = $("#tax option:selected").index();
-	// 1 tax column
-	if (taxsettings == 1) {
-		if ($(".tax2-column").length == 0) {
-				return false;
-			} else {
-				$('#document-table th:nth-child(6), #document-table td:nth-child(6)').remove();
-				$('#document-table tfoot th:nth-child(3), #document-table tfoot td:nth-child(3)').remove();
-				
-			}
-	
-	}
-	// no tax column
-	if (taxsettings == 0) {
-		if ($(".tax2-column").length == 0 && $(".tax1-column").length == 0) {
-			return false;
-			} else {
-	$('#document-table th:nth-child(6), #document-table td:nth-child(6)').remove();
-	$('#document-table tfoot th:nth-child(3), #document-table tfoot td:nth-child(3)').remove();
-	$('#document-table th:nth-child(5), #document-table td:nth-child(5)').remove();
-	$('#document-table tfoot th:nth-child(3), #document-table tfoot td:nth-child(3)').remove();
-	}
+var taxsettings = $("#tax option:selected").index();
+if (taxsettings == 2) {	
+    // two taxes
 }
 }
 
-function AddTax2(){
 
-}
-
-function AddTax1(){
-
-}
