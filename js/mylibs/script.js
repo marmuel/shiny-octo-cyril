@@ -10,13 +10,17 @@ $(document).ready(function() {
 	}, function() {
 		$(this.cells[0]).removeClass('showDragHandle');
 	});
-   // add currency to labels
-    SetCurrency();
+
    // set all textareas to autosize
     $('textarea').autosize();  
-    // set discount
+    // set defaults discount, shipping and tax
     SetDiscount();
     SetShipping();
+    $("#tax").trigger("change");
+    // add currency to labels
+    $("#currency").trigger("change");
+
+    
 });
 
 // add row
@@ -29,9 +33,7 @@ var row = $("#document-table tbody>tr:last").clone(true);
  $(".tax2-row", row).val('0%');
  
  
- $(row).fadeIn(400 ,function (){ 
-            row.insertAfter('#document-table tbody>tr:last');
-  });
+ $(row.insertAfter('#document-table tbody>tr:last')).fadeIn();
  
 	// configuration table tablednd
 	$("#document-table").tableDnD();
@@ -58,7 +60,7 @@ $("#document-table").on("click", ".remove-row", function(event) {
 		return false;
 	} else {
 
-		tr.css("background-color", "#d9534f");
+		//tr.css("background-color", "#d9534f");
 
 		tr.fadeOut(400, function() {
 
@@ -73,44 +75,28 @@ $("#document-table").on('click', ".remove-row", function() {
 	$("#document-table").closest('tr').remove();
 });
 
-// add currency to labels
-function SetCurrency() {
-   var dissettings = $("#discount option:selected").index();
-   var cur = $('#currency').val();
-   var percent = "%";
-   $('.currency-label').val(cur); 
-   $('.discount-row-label').val(cur); 
-   if (dissettings == 2) {
-   	$('.discount-row-label').val(percent); 
-   } 
-}
-
 // Discount or not?
 function SetDiscount() {
 	var dissettings = $("#discount option:selected").index();
 	var drow = $(".discount-row").parents('tr');
 	if (dissettings == 0) {
 		    // no discount		
-			$(drow).fadeOut(400 ,function (){ 
-            $(drow).hide();
+			$(drow).fadeOut();
             $(".discount-total").val(0);                    
-      });
 		}
 	if (dissettings == 1) {
 		    // discount flat
-			$(drow).fadeIn(400 ,function (){ 
-            $(drow).show(); 
-             });
+			$(drow).fadeIn();
 			$(drow).i18n();
-			SetCurrency();
+			 // add currency to labels
+    		$("#currency").trigger("change");
 		} 
 	if (dissettings == 2) {
 		    // discount percent
-			$(drow).fadeIn(400 ,function (){ 
-            $(drow).show(); 
-             });
+			$(drow).fadeIn();
 			$(drow).i18n();
-			SetCurrency();
+			 // add currency to labels
+    		$("#currency").trigger("change");
 }
 }
 
@@ -120,23 +106,90 @@ function SetShipping() {
 	var srow = $(".shipping-row").parents('tr');
 	if (shipsettings == 0) {
 		// no shipping costs		
-		$(srow).fadeOut(400 ,function (){ 
-        $(srow).hide();   
+		$(srow).fadeOut();   
         $(".shipping-total").val(0);                 
-      });
 	} else {
 		// shipping costs	
-		$(srow).fadeIn(400 ,function (){ 
-       	$(srow).show(); 
-      });
+		$(srow).fadeIn(); 
 	}
 }
 
-function SetTax(){
-var taxsettings = $("#tax option:selected").index();
-if (taxsettings == 2) {	
-    // two taxes
-}
-}
 
+$('#tax').change(function () {
+	var taxessettings = $("#tax option:selected").index();
+	var trow = $(".tax-row").parents('tr');
+	if (taxessettings == 0) {
+		// no shipping costs		
+		$(trow).fadeOut();   
+        $(".tax-total").val(0);                 
+	} else {
+		// shipping costs	
+		$(trow).fadeIn(); 
+	}
+
+	
+    
+    var $tax1 = $('#document-table').find('tbody tr').find('td:nth-child(5)'),
+        $tax1th = $('#document-table').find('thead th:nth-child(5)'),
+        $tax1ft = $('#document-table').find('tfoot tr').find('td:nth-child(3)'),
+        $tax2 = $('#document-table').find('tbody tr').find('td:nth-child(6)'),
+        $tax2th = $('#document-table').find('thead th:nth-child(6)'),
+        $tax2ft = $('#document-table').find('tfoot tr').find('td:nth-child(4)'),
+        $v = $(this).val();
+        
+    if ($v == 'tax-none') {
+    	 $tax1.fadeOut();
+    	 $tax1th.fadeOut();
+    	 $tax1ft.fadeOut();
+    	 $tax2.fadeOut();
+    	 $tax2th.fadeOut();
+    	 $tax2ft.fadeOut(); 	 
+    	}      
+        
+    if ($v == '1 Tax') {
+    	$tax1.fadeIn ();
+    	$tax1th.fadeIn();
+    	$tax1ft.fadeIn();
+    	$tax2.fadeOut();
+    	$tax2th.fadeOut();
+    	$tax2ft.fadeOut();
+    	}   
+    if ($v == '2 Taxes') {
+    	$tax1.fadeIn();
+    	$tax1th.fadeIn();
+    	$tax1ft.fadeIn();
+    	$tax2.fadeIn();
+    	$tax2th.fadeIn();
+    	$tax2ft.fadeIn();
+    	}   
+
+
+});
+
+// disable 'taxes 2' for e.g. German Market
+
+$('#currency').change(function () {
+	var str = "";
+	var taxsettings = $("#tax option:selected").index();
+	var currencysettings = $( "#currency option:selected" ).text();
+	console.log(currencysettings);
+	if (currencysettings == ' EUR Euro') {
+		      	//$('#tax').attr('disabled','disabled');
+      	$("#tax option[value='2 Taxes']").attr('disabled','disabled');
+ 	
+	} else {
+		$("#tax option[value='2 Taxes']").removeAttr('disabled');
+	}
+	
+ // add currency to labels
+
+   var dissettings = $("#discount option:selected").index();
+   var cur = $('#currency').val();
+   var percent = "%";
+   $('.currency-label').val(cur); 
+   $('.discount-row-label').val(cur); 
+   if (dissettings == 2) {
+   	$('.discount-row-label').val(percent); 
+   } 
+});
 

@@ -6,7 +6,12 @@
 body {
 	padding-top: 50px;
 }
-
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Open Sans', sans-serif;
+}
+p, div {
+    font-family: 'Open Sans', sans-serif;
+}
 /*
  * Global
  */
@@ -140,7 +145,7 @@ body {
 	overflow: hidden;
 	word-wrap: break-word;
 	resize: none;
-	line-height: 1em;
+	line-height: 1.5em;
 }
 
 input[type=date] {
@@ -189,7 +194,7 @@ box-shadow: none;
 .noline{
 	border-top: 0px !important;
 }
-.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover{
+.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover, .grossprice:hover{
 	background-color: #fff;
 }
 
@@ -236,4 +241,6 @@ td.showDragHandle {
 #button-rowadd{
 	margin-left: 20px;
 }
- 
+div.brand a{
+	text-decoration: none;
+} 
