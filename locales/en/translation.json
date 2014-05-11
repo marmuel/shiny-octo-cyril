@@ -1,0 +1,52 @@
+{
+	"app": {
+		"name": "i18nlexoffice"
+	},
+	"nav": {
+		"invoice": "Invoice",
+		"settings": "Settings",
+		"country": "Language",
+		"help": "Help"
+	},
+	"sidebarbutton": {
+		"preview": " Preview",
+		"pdf": " PDF",
+		"email": " Email",
+		"default": " Template",
+		"currencylabel": "Currency",
+		"discountlabel": "Discount",
+		"discountnone": "No",
+		"discountflat": "Discount Flat",
+		"discountpercent": "Discount Percent",
+		"shippinglabel": "Shipping",
+		"shippingno": "No",
+		"shippingyes": "Yes",
+		"taxlabel": "Tax",
+		"taxnone": "No",
+		"tax1": "1 Tax",
+		"tax2": "2 Taxes"
+	},
+	"document": {
+		"type": "Invoice",
+		"fromaddress": "Your Company\nJane Doe\n123 Anywhere Street, Anytown\nState 12345",
+		"toaddress": "Bill To\nYour Company\nJoe Blogg\n123 Anywhere Street, Anytown\nState 67890",
+		"nolabel": "Invoice Number",
+		"datelabel": "Date",
+		"termslabel": "Notes and Terms (Visible to your client)"
+		},
+	"table": {
+		"amount": "Amount",
+		"quantity": "Quantity",
+		"tax": "Tax",
+		"unitprice": "Unit Price",
+		"description": "Description",
+		"addrow": " Product",
+		"product": "Product",
+		"subtotal": "Subtotal",
+		"taxtotal": "Taxes Total",
+		"balance": "Balance",
+		"discount": "Discount",
+		"shipping": "Shipping"
+	} 
+}
+

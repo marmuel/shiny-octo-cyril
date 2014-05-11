@@ -1,0 +1,51 @@
+{
+	"app": {
+		"name": "i18nlexoffice"
+	},
+	"nav": {
+		"invoice": "Rechnung",
+		"settings": "Einstellungen",
+		"language": "Sprache",
+		"help": "Hilfe"
+	},
+	"sidebarbutton": {
+		"preview": " Vorschau",
+		"pdf": " PDF",
+		"email": " E-Mail",
+		"default": " Vorlage",
+		"currencylabel": "Währung",
+		"discountlabel": "Rabatt",
+		"discountnone": "Kein Rabatt",
+		"discountflat": "Pauschale",
+		"discountpercent": "Prozent",
+		"shippinglabel": "Versandkosten",
+		"shippingno": "Nein",
+		"shippingyes": "Ja",
+		"taxlabel": "Mehrwertsteuer",
+		"taxnone": "Keine MwSt.",
+		"tax1": "Mit MwSt.",
+		"tax2": ""
+	},
+	"document": {
+		"type": "Rechnung",
+		"fromaddress": "Ihre Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
+		"toaddress": "Rechnungsempfänger Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
+		"nolabel": "Rechnungsnummer",
+		"datelabel": "Rechnungsdatum",
+		"termslabel": "Bedingungen und Bemerkungen (Sichtbar für Ihren Kunden)"
+	},
+	"table": {
+		"amount": "Gesamtbetrag",
+		"quantity": "Menge",
+		"tax": "Mehrwertsteuer",
+		"unitprice": "Einzelpreis",
+		"description": "Beschreibung",
+		"addrow": " Produkt",
+		"product": "Produkt oder Service",
+		"subtotal": "Nettopreis",
+		"taxtotal": "Mehrwertsteuer",
+		"balance": "Bruttopreis",
+		"discount": "Rabatt",
+		"shipping": "Versandkosten"
+	}
+}
