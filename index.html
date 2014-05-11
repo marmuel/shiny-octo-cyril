@@ -19,6 +19,7 @@
 		<!-- Optional theme and table-->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/jquery.ezdz.min.css">
 		<link rel="stylesheet" href="css/style.css">
 
 	</head>
@@ -30,6 +31,7 @@
 					<div class="brand">
 						<a href="#"><img class="brand-logo" src="img/logo_lexoffice.png" width="232" height="35" alt="lexoffice - time to get paid"><span class="claim"> Time to get paid!</span></a>
 					</div>
+
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -75,6 +77,11 @@
 							</button>
 						</li>
 						<li>
+							<button id="button-dropbox" class="btn btn-lg btn-primary">
+								<span class="glyphicon dropbox" data-i18n="sidebarbutton.dropbox"></span>
+							</button>
+						</li>
+						<li>
 							<button id="button-email" class="btn btn-lg btn-success">
 								<span class="glyphicon glyphicon-envelope" data-i18n="sidebarbutton.email"></span>
 							</button>
@@ -102,9 +109,17 @@
 						</li>
 						<li>
 							<label for="shipping" data-i18n="sidebarbutton.shippinglabel"></label>
-							<select id="shipping" class="form-control shipping" onChange="SetShipping();">
-								<option value="shipping-none" selected="selected" data-i18n="sidebarbutton.shippingno"></option><option value="shipping-yes" data-i18n="sidebarbutton.shippingyes"></option>
-							</select>
+							<div class="btn-group btn-group-shipping" data-toggle="buttons">
+								<label class="btn btn-default shipping-radio" id="shippingno">
+									<input type="radio" class="btn">
+									<span data-i18n="sidebarbutton.shippingno"></span> </label>
+								<label class="btn btn-default shipping-radio" id="shippingyes">
+									<input type="radio" class="btn">
+									<span data-i18n="sidebarbutton.shippingyes"></span> </label>
+							</div>
+						</li>
+						<li>
+
 						</li>
 						<li class="divider"></li>
 					</ul>
@@ -120,19 +135,52 @@
 				</div>
 
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
 					<div class="document-wrapper">
-						
+
 						<div id="invoice-header" class="row" >
 
-							
-							
 							<div class="col-md-6">
 								<textarea id="document-type" class="document-inputs" data-i18n="document.type"></textarea>
 								<textarea id="document-from" class="document-inputs address" data-i18n="document.fromaddress"></textarea>
 							</div>
 							<div class="col-md-6">
-								<a href="#"><img class="document-logo" data-i18n="document.invoice.logo"></a>
+								<form action="" method="post" enctype="multipart/form-data">
+									<div class="ezdz-dropzone">
+										<div data-i18n="document.logoupload"></div>
+										<input type="file" accept="image/png, image/jpeg">
+									</div>
+
+									<!--<input type="submit">-->
+								</form>
+
 							</div>
+							<!--modal dialog logo upload-->
+							<div class="modal fade">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+											<h4 class="modal-title">Modal title</h4>
+										</div>
+										<div class="modal-body">
+											<p>
+												One fine body&hellip;
+											</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">
+												Close
+											</button>
+											<button type="button" class="btn btn-primary">
+												Save changes
+											</button>
+										</div>
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
 						</div>
 						<div id="invoice-body" class="row" >
 
@@ -153,10 +201,10 @@
 							<table class="table" id="document-table">
 								<thead>
 									<tr>
-										<th class="dragHandle"></th><th><textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs tax2-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
+										<th class="dragHandle"></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs tax2-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
 									</tr>
 								</thead>
-								
+
 								<tfoot>
 									<tr class="nodrag">
 										<td colspan="3" style="cursor: default;" class="nodrag">
@@ -169,51 +217,58 @@
 										<td style="cursor: default;" class="nodrag">
 										<input data-key="subtotal" class="table-inputs sub-total" disabled="disabled" value="0">
 										</td>
-										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
+										<td style="cursor: default;" class="nodrag currency-column">										<textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
 									</tr>
-									<tr class="nodrag"><td colspan="3" style="cursor: default;" class="nodrag noline"></td>
-										<td class="nodrag"><textarea type="text" class="table-inputs shipping-row" data-i18n="table.shipping" style="cursor: default;">Shipping</textarea></td>
+									<tr class="nodrag">
+										<td colspan="3" style="cursor: default;" class="nodrag noline"></td>
+										<td class="nodrag">										<textarea type="text" class="table-inputs shipping-row" data-i18n="table.shipping" style="cursor: default;">Shipping</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
-										<td style="cursor: default;" class="nodrag"><input data-key="subtotal" class="table-inputs shipping-total" value="0"></td>
-										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
-										</tr>
-									<tr class="nodrag"><td colspan="3" style="cursor: default;" class="nodrag noline"></td><td class="nodrag"><textarea type="text" class="table-inputs discount-row" data-i18n="table.discount" style="cursor: default;">Discount</textarea></td>
+										<td style="cursor: default;" class="nodrag">
+										<input data-key="subtotal" class="table-inputs shipping-total" value="0">
+										</td>
+										<td style="cursor: default;" class="nodrag currency-column">										<textarea type="text" class="table-inputs currency-label" style="cursor: default;" disabled="disabled"></textarea></td>
+									</tr>
+									<tr class="nodrag">
+										<td colspan="3" style="cursor: default;" class="nodrag noline"></td><td class="nodrag">										<textarea type="text" class="table-inputs discount-row" data-i18n="table.discount" style="cursor: default;">Discount</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
-										<td style="cursor: default;" class="nodrag"><input data-key="subtotal" class="table-inputs discount-total" value="0"></td>
-										<td style="cursor: default;" class="nodrag"><textarea type="text" class="table-inputs discount-row-label" style="cursor: default;" disabled="disabled"></textarea></td>
+										<td style="cursor: default;" class="nodrag">
+										<input data-key="subtotal" class="table-inputs discount-total" value="0">
+										</td>
+										<td style="cursor: default;" class="nodrag">										<textarea type="text" class="table-inputs discount-row-label" style="cursor: default;" disabled="disabled"></textarea></td>
 									</tr>
 									<tr class="nodrag">
 										<td colspan="3" class="noline" style="cursor: default;"></td>
-										<td class="nodrag">	<textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Taxes Total</textarea></td>
+										<td class="nodrag">										<textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Taxes Total</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag">
 										<input data-key="tax-total" class="table-inputs tax-total" disabled="disabled" value="0">
 										</td>
-										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
+										<td style="cursor: default;" class="nodrag currency-column">										<textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
 									</tr>
 
 									<tr class="nodrag">
 										<td colspan="3" class="noline" style="cursor: default;"></td>
-										<td><textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Balance</textarea></td>
+										<td>										<textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Balance</textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;">
 										<input data-key="balance" class="table-inputs balance" disabled="disabled" value="0">
 										</td>
-										<td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
+										<td style="cursor: default;" class="nodrag currency-column">										<textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
 									</tr>
-									
+
 								</tfoot>
 
 								<tbody>
 									<tr>
 										<td class="dragHandle"></td>
-										<td class="product-column"><textarea type="text" data-key="description" class="table-inputs product" data-i18n="table.product" contentEditable="true"></textarea></td>
+										<td class="product-column">										<textarea type="text" data-key="description" class="table-inputs product" data-i18n="table.product" contentEditable="true"></textarea></td>
 										<td class="quantity-column">
-										<input data-key="quantity" class="table-inputs quantity" type="number" value="1"></td><td class="netprice-column">
+										<input data-key="quantity" class="table-inputs quantity" type="number" value="1">
+										</td><td class="netprice-column">
 										<input data-key="unitprice" class="table-inputs unitprice" autocomplete="off" value="0">
 										</td><td class="tax1-column">
 										<input  data-key="tax1" class="table-inputs tax1-row" autocomplete="off" value="0%">
@@ -222,12 +277,10 @@
 										</td><td class="grossprice-column">
 										<input disabled="disabled" data-key="grossprice" class="table-inputs grossprice" autocomplete="off" value="0">
 										</td>
-										
-										<td class="table-controls"><button class="btn btn-danger glyphicon glyphicon-trash remove-row" href="#"></button></td>										
+
+										<td class="table-controls"><button class="btn btn-danger glyphicon glyphicon-trash remove-row" href="#"></button></td>
 									</tr>
 								</tbody>
-								
-								
 
 							</table>
 							<div class="col-md-12">
@@ -247,6 +300,7 @@
 		<script type="text/javascript" src="js/mylibs/i18nlexoffice.js" ></script>
 		<script type="text/javascript" src="js/libs/jquery.tablednd.js" ></script>
 		<script type="text/javascript" src="js/libs/jquery.autosize.min.js" ></script>
+		<script type="text/javascript" src="js/libs/jquery.ezdz.min.js" ></script>
 		<script defer src="js/mylibs/script.js"></script>
 		<!-- end scripts-->
 		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

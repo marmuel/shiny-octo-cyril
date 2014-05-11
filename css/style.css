@@ -68,7 +68,7 @@ p, div {
 	color: #fff;
 	background-color: #428bca;
 }
-#button-preview, #button-pdf, #button-email, #button-default {
+#button-preview, #button-pdf, #button-email, #button-default, #button-dropbox {
 	width: 80%;
 	margin-bottom: 20px;
 }
@@ -86,6 +86,16 @@ p, div {
 	overflow: hidden;
 	background-color: #e5e5e5;
 	width: 80%;
+}
+.shipping-radio{
+	width: 40%;
+}
+.btn-group-shipping{
+	width: 100%;
+}
+span.dropbox{
+	background: url('../img/dropbox-20.png') no-repeat; 
+	padding: 0px 0px 0px 25px;
 }
 /*
  * Main content

@@ -15,7 +15,8 @@ $(document).ready(function() {
     $('textarea').autosize();  
     // set defaults discount, shipping and tax
     SetDiscount();
-    SetShipping();
+
+    $('#shippingno').trigger('click');
     $("#tax").trigger("change");
     // add currency to labels
     $("#currency").trigger("change");
@@ -101,18 +102,19 @@ function SetDiscount() {
 }
 
 // Shipping or not?
-function SetShipping() {
-	var shipsettings = $("#shipping option:selected").index();
-	var srow = $(".shipping-row").parents('tr');
-	if (shipsettings == 0) {
-		// no shipping costs		
+var $delbtnyes = $('#shippingyes');
+var $delbtnno = $('#shippingno'); 
+var srow = $(".shipping-row").parents('tr'); 
+
+$delbtnyes.on('click', function () {
+	// shipping costs	
+		(srow).fadeIn(); 
+});   
+$delbtnno.on('click', function () {
+   // no shipping costs		
 		$(srow).fadeOut();   
-        $(".shipping-total").val(0);                 
-	} else {
-		// shipping costs	
-		$(srow).fadeIn(); 
-	}
-}
+        $(".shipping-total").val(0);   
+});
 
 
 $('#tax').change(function () {

@@ -24,7 +24,8 @@
 		"taxlabel": "Tax",
 		"taxnone": "No",
 		"tax1": "1 Tax",
-		"tax2": "2 Taxes"
+		"tax2": "2 Taxes",
+		"dropbox": " Dropbox"
 	},
 	"document": {
 		"type": "Invoice",
@@ -32,7 +33,8 @@
 		"toaddress": "Bill To\nYour Company\nJoe Blogg\n123 Anywhere Street, Anytown\nState 67890",
 		"nolabel": "Invoice Number",
 		"datelabel": "Date",
-		"termslabel": "Notes and Terms (Visible to your client)"
+		"termslabel": "Notes and Terms (Visible to your client)",
+		"logoupload": "Drop a Logo"
 		},
 	"table": {
 		"amount": "Amount",
@@ -40,7 +42,7 @@
 		"tax": "Tax",
 		"unitprice": "Unit Price",
 		"description": "Description",
-		"addrow": " Product",
+		"addrow": " Add Line",
 		"product": "Product",
 		"subtotal": "Subtotal",
 		"taxtotal": "Taxes Total",

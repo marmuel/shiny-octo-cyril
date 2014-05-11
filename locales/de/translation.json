@@ -24,7 +24,9 @@
 		"taxlabel": "Mehrwertsteuer",
 		"taxnone": "Keine MwSt.",
 		"tax1": "Mit MwSt.",
-		"tax2": ""
+		"tax2": "",
+		"dropbox": " Dropbox"
+		
 	},
 	"document": {
 		"type": "Rechnung",
@@ -32,7 +34,8 @@
 		"toaddress": "Rechnungsempfänger Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
 		"nolabel": "Rechnungsnummer",
 		"datelabel": "Rechnungsdatum",
-		"termslabel": "Bedingungen und Bemerkungen (Sichtbar für Ihren Kunden)"
+		"termslabel": "Bedingungen und Bemerkungen (Sichtbar für Ihren Kunden)",
+		"logoupload": "Logo hinzufügen"
 	},
 	"table": {
 		"amount": "Gesamtbetrag",
@@ -40,7 +43,7 @@
 		"tax": "Mehrwertsteuer",
 		"unitprice": "Einzelpreis",
 		"description": "Beschreibung",
-		"addrow": " Produkt",
+		"addrow": " Zeile",
 		"product": "Produkt oder Service",
 		"subtotal": "Nettopreis",
 		"taxtotal": "Mehrwertsteuer",
