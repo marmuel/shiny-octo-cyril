@@ -311,5 +311,18 @@ function geolocate() {
 	}
 }
 
+function c(){
+var a = {}, l = 0;
+
+$('.tax2-row, .tax1-row').each(function(){
+	
+    if (!a[$(this).val()]) {
+        l++;
+        a[$(this).val()] = true;
+    }
+});
+
+alert(l);
+}
 
 
