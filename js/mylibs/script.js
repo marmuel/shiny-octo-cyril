@@ -315,11 +315,15 @@ function c(){
 var a = {}, l = 0;
 
 $('.tax2-row, .tax1-row').each(function(){
-	
+	if ($(this).val() != "") {
     if (!a[$(this).val()]) {
+    	//alert($(this).val());
         l++;
         a[$(this).val()] = true;
     }
+  } else {
+  	return;
+  }
 });
 
 alert(l);
