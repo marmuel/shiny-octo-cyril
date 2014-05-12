@@ -146,26 +146,33 @@ $('#tax').change(function() {
 	$v = $(this).val();
 
 	if ($v == 'tax-none') {
+		
 		$tax1.fadeOut();
 		$tax1th.fadeOut();
 		$tax2.fadeOut();
 		$tax2th.fadeOut();
 		$('.footer-labels').attr('colspan',1);
+        $('.tax1-column input').val('');
+        $('.tax2-column input').val('');
+		
 	}
 
 	if ($v == '1 Tax') {
+		$('td.footer-labels').attr('colspan',2);
 		$tax1.fadeIn();
 		$tax1th.fadeIn();
 		$tax2.fadeOut();
 		$tax2th.fadeOut();
-		$('td.footer-labels').attr('colspan',2);
+		$('.tax2-column input').val('');
+		
 	}
 	if ($v == '2 Taxes') {
+		$('td.footer-labels').attr('colspan',3);
 		$tax1.fadeIn();
 		$tax1th.fadeIn();
 		$tax2.fadeIn();
 		$tax2th.fadeIn();
-		$('td.footer-labels').attr('colspan',3);
+		$('.tax2-column input').val('');
 	}
 
 });
