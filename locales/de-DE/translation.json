@@ -25,16 +25,27 @@
 		"taxnone": "Keine MwSt.",
 		"tax1": "Mit MwSt.",
 		"tax2": "",
-		"dropbox": " Dropbox"
+		"dropbox": " Dropbox",
+		"googlesearch": "Google Adresssuche nutzen",
+		"searchno": "Nein",
+		"searchyes": "Ja"
 	},
 	"document": {
 		"type": "Rechnung",
+		"enteraddress": "Bitte geben Sie eine Adresse ein",
 		"fromaddress": "Ihre Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
-		"toaddress": "Rechnungsempfänger Firma GmbH & Co. KG\nMax Mustermann\nMusterstrasse 10\n12345 Musterstadt",
+		"tocompany": "Rechnungsempfänger Firma GmbH & Co. KG",
+		"toaddress": "Max Mustermann\nMusterstrasse 10\n12345 Musterstadt",
 		"nolabel": "Rechnungsnummer",
 		"datelabel": "Rechnungsdatum",
 		"termslabel": "Bedingungen und Bemerkungen (Sichtbar für Ihren Kunden)",
-		"logoupload": "Logo hinzufügen"
+		"logoupload": "Logo hinzufügen",
+		"streetno": "Nr.",
+		"street": "Strasse",
+		"city": "Stadt",
+		"state": "Bundesland",
+		"zipcode": "PLZ",
+		"country": "Land"
 	},
 	"table": {
 		"amount": "Gesamtbetrag",

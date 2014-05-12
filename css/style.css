@@ -75,7 +75,7 @@ p, div {
 .actionbuttons {
 	margin-left: 10%;
 }
-.currency, .discount, .shipping, .tax {
+.currency, .discount, .shipping, .tax, .googlesearch {
 	max-width: 80%;
 	margin-bottom: 20px;
 }
@@ -87,10 +87,10 @@ p, div {
 	background-color: #e5e5e5;
 	width: 80%;
 }
-.shipping-radio{
+.shipping-radio, .googlesearch-radio{
 	width: 40%;
 }
-.btn-group-shipping{
+.btn-group-shipping, .btn-group-googlesearch{
 	width: 100%;
 }
 span.dropbox{
@@ -129,7 +129,7 @@ span.dropbox{
 	height: 60px;
 }
 
-.document-inputs:hover {
+.document-inputs:hover, .document-inputs-googlesearch:hover {
 	background: #fcf8e3;
 	border: none;
 	box-shadow: none;
@@ -155,7 +155,8 @@ span.dropbox{
 	overflow: hidden;
 	word-wrap: break-word;
 	resize: none;
-	line-height: 1.5em;
+	line-height: 1.0em;
+	height: 30px;
 }
 
 input[type=date] {
@@ -168,8 +169,15 @@ input[type=date] {
 	line-height: 1em;
 }
 .address {
-	height: 120px;
+	height: 80px;
 	margin-bottom: 10px;
+}
+.to-address {
+	height: 80px;
+	margin: 2px 0px 10px 0px;
+}
+#document-tocompany{
+	padding-top: 5px;
 }
 /* 
  * document table
@@ -254,3 +262,41 @@ td.showDragHandle {
 div.brand a{
 	text-decoration: none;
 } 
+
+/*google maps address search */
+
+#googleaddress{
+	margin-top: 0px;
+}
+      .slimField {
+        width: 50%;
+      }
+      .wideField {
+        width: 80%;
+      }
+      #locationField {
+        height: 1em;
+        margin-bottom: 2px;
+      }
+.document-inputs-googlesearch {
+	padding: 10px;
+	margin-top: 2px;
+	border: none;
+	overflow: hidden;
+	word-wrap: break-word;
+	resize: none;
+	height: 27px;
+	line-height: 1em;
+}
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 15px 0px;
+    pointer-events: none;
+}

@@ -25,30 +25,41 @@
 		"taxnone": "No",
 		"tax1": "1 Tax",
 		"tax2": "2 Taxes",
-		"dropbox": " Dropbox"
+		"dropbox": " Dropbox",
+		"googlesearch": "Use Google Address Finder",
+		"searchno": "No",
+		"searchyes": "Yes"
 	},
 	"document": {
 		"type": "Invoice",
+		"enteraddress": "Enter Address",
 		"fromaddress": "Your Company\nJane Doe\n123 Anywhere Street, Anytown\nState 12345",
-		"toaddress": "Bill To\nYour Company\nJoe Blogg\n123 Anywhere Street, Anytown\nState 67890",
+		"tocompany": "Bill To Company",
+		"toaddress": "Joe Blogg\n123 Anywhere Street, Anytown\nState 67890",
 		"nolabel": "Invoice Number",
 		"datelabel": "Date",
 		"termslabel": "Notes and Terms (Visible to your client)",
-		"logoupload": "Drop a Logo"
-		},
+		"logoupload": "Drop a Logo",
+		"streetno": "No.",
+		"street": "Street",
+		"city": "City",
+		"state": "State",
+		"zipcode": "Zip Code",
+		"country": "Country"
+	},
 	"table": {
 		"amount": "Amount",
 		"quantity": "Quantity",
 		"tax": "Tax",
 		"unitprice": "Unit Price",
 		"description": "Description",
-		"addrow": " Add Line",
+		"addrow": " Line",
 		"product": "Product",
 		"subtotal": "Subtotal",
 		"taxtotal": "Taxes Total",
 		"balance": "Balance",
 		"discount": "Discount",
 		"shipping": "Shipping"
-	} 
+	}
 }
 
