@@ -234,7 +234,7 @@
 							<table class="table" id="document-table">
 								<thead>
 									<tr>
-										<th class="dragHandle"></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs tax2-header" data-i18n="table.tax">Tax</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
+										<th class="dragHandle"></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.description" >Description</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.quantity">Quantity</textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.unitprice">Unit Price</textarea></th><th>										<textarea type="text" class="header-inputs tax1-header" data-i18n="table.tax1"></textarea></th><th>										<textarea type="text" class="header-inputs tax2-header" data-i18n="table.tax2"></textarea></th><th>										<textarea type="text" class="header-inputs" data-i18n="table.amount" value="0">Amount</textarea></th><th style="cursor: default"></th>
 									</tr>
 								</thead>
 
@@ -273,15 +273,24 @@
 									</tr>
 									<tr class="nodrag">
 										<td colspan="3" class="noline" style="cursor: default;"></td>
-										<td class="nodrag">										<textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Taxes Total</textarea></td>
+										<td class="nodrag">										<textarea type="text" class="table-inputs tax-row1" data-i18n="table.taxtotal1" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag"></td>
 										<td style="cursor: default;" class="nodrag">
-										<input data-key="tax-total" class="table-inputs tax-total" disabled="disabled" value="0">
+										<input data-key="tax-total1" class="table-inputs tax-total1" disabled="disabled" value="0">
 										</td>
 										<td style="cursor: default;" class="nodrag currency-column">										<textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
 									</tr>
-
+									<tr class="nodrag">
+										<td colspan="3" class="noline" style="cursor: default;"></td>
+										<td class="nodrag">										<textarea type="text" class="table-inputs tax-row2" data-i18n="table.taxtotal2" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td>
+										<td style="cursor: default;" class="nodrag"></td>
+										<td style="cursor: default;" class="nodrag"></td>
+										<td style="cursor: default;" class="nodrag">
+										<input data-key="tax-total2" class="table-inputs tax-total2" disabled="disabled" value="0">
+										</td>
+										<td style="cursor: default;" class="nodrag currency-column">										<textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td>
+									</tr>
 									<tr class="nodrag">
 										<td colspan="3" class="noline" style="cursor: default;"></td>
 										<td>										<textarea type="text" class="table-inputs" data-i18n="table.balance" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;">Balance</textarea></td>
@@ -330,12 +339,14 @@
 		<!-- Latest compiled and minified bootstrap JavaScript -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<script defer src="js/libs/i18next-1.7.3.js"></script>
+		<script defer src="js/mylibs/script.js"></script>
+		
 		<script type="text/javascript" src="js/mylibs/i18nlexoffice.js" ></script>
 		<script type="text/javascript" src="js/libs/jquery.tablednd.js" ></script>
 		<script type="text/javascript" src="js/libs/jquery.autosize.min.js" ></script>
 		<script type="text/javascript" src="js/libs/jquery.ezdz.min.js" ></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-		<script defer src="js/mylibs/script.js"></script>
+		<script defer src="js/mylibs/localize.js"></script>
 		<!-- end scripts-->
 		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
 		chromium.org/developers/how-tos/chrome-frame-getting-started -->

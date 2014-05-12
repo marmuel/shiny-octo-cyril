@@ -122,16 +122,29 @@ $delbtnno.on('click', function() {
 
 $('#tax').change(function() {
 	var taxessettings = $("#tax option:selected").index();
-	var trow = $(".tax-row").parents('tr');
+	var trow1 = $(".tax-row1").parents('tr');
+	var trow2 = $(".tax-row2").parents('tr');
 	if (taxessettings == 0) {
-		// no shipping costs
-		$(trow).fadeOut();
-		$(".tax-total").val(0);
-	} else {
-		// shipping costs
-		$(trow).fadeIn();
+		// no taxes
+		$(trow1).fadeOut();
+		$(trow2).fadeOut();
+		$(".tax-total1").val(0);
+		$(".tax-total2").val(0);
+	}
+	
+	if (taxessettings ==1) {
+		// tax 1
+		$(trow1).fadeIn();
+		$(trow2).fadeOut();
+		$(".tax-total2").val(0);
 	}
 
+if (taxessettings ==2) {
+		// tax 1
+		$(trow1).fadeIn();
+		$(trow2).fadeIn();
+	}
+ 
 	var $tax1 = $('#document-table').find('tbody tr').find('td:nth-child(5)'), $tax1th = $('#document-table').find('thead th:nth-child(5)'), $tax1ft = $('#document-table').find('tfoot tr').find('td:nth-child(3)'), $tax2 = $('#document-table').find('tbody tr').find('td:nth-child(6)'), $tax2th = $('#document-table').find('thead th:nth-child(6)'), $tax2ft = $('#document-table').find('tfoot tr').find('td:nth-child(4)'), $v = $(this).val();
 
 	if ($v == 'tax-none') {
@@ -168,7 +181,6 @@ $('#currency').change(function() {
 	var str = "";
 	var taxsettings = $("#tax option:selected").index();
 	var currencysettings = $("#currency option:selected").text();
-	console.log(currencysettings);
 	if (currencysettings == ' EUR Euro') {
 		//$('#tax').attr('disabled','disabled');
 		$("#tax option[value='2 Taxes']").attr('disabled', 'disabled');
@@ -203,7 +215,7 @@ var manaddress = $("#document-to");
 $gbtnyes.on('click', function() {
 	// google address search
 	(manaddress).hide();
-	(gbtnsearchagain).hide
+	(gbtnsearchagain).hide();
 	$('#autocomplete').val('');
 	(locationfield).show();
 	(gaddressResult).hide();
@@ -221,7 +233,7 @@ var $gSearchAgain = $('#search-again');
 $gSearchAgain.on('click', function() {
 	// google address search
 	(manaddress).hide();
-	(gbtnsearchagain).hide
+	(gbtnsearchagain).hide();
 	$('#autocomplete').val('');
 	(locationfield).show();
 	(gaddressResult).hide();
@@ -232,23 +244,11 @@ var $gSearchAccept = $('#search-accept');
 $gSearchAccept.on('click', function() {
 
 	(manaddress).show();
-	(gbtnsearchagain).hide
+	(gbtnsearchagain).hide();
 	$('#autocomplete').val('');
 	(gaddressResult).hide();
 
-	// merge Inputs document-inputs-googlesearch of Google Search Result to one Textarea
-	var gStreetNo = $('textarea#street_number').val();
-	var gStreet = $('textarea#route').val();
-	var gCity = $('textarea#locality').val();
-	var gArea1 = $('textarea#administrative_area_level_1').val();
-	var gZip = $('textarea#postal_code').val();
-	var gCountry = $('textarea#country').val();
-	// USA Format
-	if (gCountry == "Deutschland") {
-		$("#document-to").val(gStreet + " " + gStreetNo + "\n" + gZip + " " + gCity);
-	} else {
-		$("#document-to").val(gStreetNo + " " + gStreet + "\n" + gCity + "\n" + gArea1 + " " + gZip + "\n" + gCountry);
-	}
+	Country();
 });
 
 // Autocomplete

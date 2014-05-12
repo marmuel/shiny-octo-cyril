@@ -50,13 +50,15 @@
 	"table": {
 		"amount": "Gesamtbetrag",
 		"quantity": "Menge",
-		"tax": "Mehrwertsteuer",
+		"tax1": "Mehrwertsteuer",
+		"tax2": "Mehrwertsteuer",
 		"unitprice": "Einzelpreis",
 		"description": "Beschreibung",
 		"addrow": " Zeile",
 		"product": "Produkt oder Service",
 		"subtotal": "Nettopreis",
-		"taxtotal": "Mehrwertsteuer",
+		"taxtotal1": "Mehrwertsteuer",
+		"taxtotal2": "Mehrwertsteuer",
 		"balance": "Bruttopreis",
 		"discount": "Rabatt",
 		"shipping": "Versandkosten"

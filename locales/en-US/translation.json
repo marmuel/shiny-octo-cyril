@@ -50,13 +50,15 @@
 	"table": {
 		"amount": "Amount",
 		"quantity": "Quantity",
-		"tax": "Tax",
+		"tax1": "Tax",
+		"tax2": "Tax 2",
 		"unitprice": "Unit Price",
 		"description": "Description",
 		"addrow": " Line",
 		"product": "Product",
 		"subtotal": "Subtotal",
-		"taxtotal": "Taxes Total",
+		"taxtotal1": "Taxes Total",
+		"taxtotal2": "Taxes 2 Total",
 		"balance": "Balance",
 		"discount": "Discount",
 		"shipping": "Shipping"
