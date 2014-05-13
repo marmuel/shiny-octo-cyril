@@ -27,7 +27,7 @@ p, div {
 	margin: 10px 0px 0px 20px;
 	font-weight: lighter;
 	color: #fff;
-	font-size: 18px;
+	font-size: 22px;
 }
 
 
@@ -212,7 +212,7 @@ box-shadow: none;
 .noline{
 	border-top: 0px !important;
 }
-.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover, .grossprice:hover{
+.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover, .grossprice:hover, .discount-total:hover{
 	background-color: #fff;
 }
 
