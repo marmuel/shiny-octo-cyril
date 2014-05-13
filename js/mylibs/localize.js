@@ -32,6 +32,7 @@ $("#document-table tbody input, #discount, #tax, .shipping-total").on("change", 
 		var unitprice = $(this).find('input.unitprice').val();
 		var amountTotal = (quantity * unitprice);
 		$(this).find('input.grossprice').val(amountTotal);
+		$('input.grossprice').val(amountTotal.toFixed(2));
 	});
 	//END .each
 
@@ -61,7 +62,9 @@ $("#document-table tbody input, #discount, #tax, .shipping-total").on("change", 
 
 	balance = Number(subTotal) + Number(-discount) + Number(shippingcosts);
 
-	$('input.balance').val(balance);
+	//$('input.balance').val(balance);
+	
+	$('input.balance').val(balance.toFixed(2));
 
 	return false;
 });
