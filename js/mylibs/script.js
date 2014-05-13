@@ -119,9 +119,9 @@ $delbtnno.on('click', function() {
 var $taxes = $('.taxes');
 $taxes.on('change', function() {
 
-   $('.tax-subtotal').show();
-   return false;
-   
+	$('.tax-subtotal').show();
+	return false;
+
 	$($taxes).each(function() {
 		if ($(this).val().length == 0) {
 			return;
@@ -138,36 +138,34 @@ $taxes.on('change', function() {
 	});
 });
 
-// add dynamically rows for taxes 
+// add dynamically rows for taxes
 $('#tax').change(function() {
 	var taxessettings = $("#tax option:selected").index();
-	var $tax1 = $('#document-table').find('tbody tr').find('td:nth-child(5)'), $tax1th = $('#document-table').find('thead th:nth-child(5)'),
-	$tax2 = $('#document-table').find('tbody tr').find('td:nth-child(6)'), $tax2th = $('#document-table').find('thead th:nth-child(6)'),
-	$v = $(this).val();
+	var $tax1 = $('#document-table').find('tbody tr').find('td:nth-child(5)'), $tax1th = $('#document-table').find('thead th:nth-child(5)'), $tax2 = $('#document-table').find('tbody tr').find('td:nth-child(6)'), $tax2th = $('#document-table').find('thead th:nth-child(6)'), $v = $(this).val();
 
 	if ($v == 'tax-none') {
-		
+
 		$tax1.fadeOut();
 		$tax1th.fadeOut();
 		$tax2.fadeOut();
 		$tax2th.fadeOut();
-		$('.footer-labels').attr('colspan',1);
-        $('.tax1-column input').val('');
-        $('.tax2-column input').val('');
-		
+		$('.footer-labels').attr('colspan', 1);
+		$('.tax1-column input').val('');
+		$('.tax2-column input').val('');
+
 	}
 
 	if ($v == '1 Tax') {
-		$('td.footer-labels').attr('colspan',2);
+		$('td.footer-labels').attr('colspan', 2);
 		$tax1.fadeIn();
 		$tax1th.fadeIn();
 		$tax2.fadeOut();
 		$tax2th.fadeOut();
 		$('.tax2-column input').val('');
-		
+
 	}
 	if ($v == '2 Taxes') {
-		$('td.footer-labels').attr('colspan',3);
+		$('td.footer-labels').attr('colspan', 3);
 		$tax1.fadeIn();
 		$tax1th.fadeIn();
 		$tax2.fadeIn();
@@ -311,22 +309,46 @@ function geolocate() {
 	}
 }
 
-function c(){
-var a = {}, l = 0;
+$(function() {
+	$("#document-table tbody .tax1-row, .tax2-row").on("change", function() {
+		var a = {}, l = 0;
+        // remove all tax rows - TODO: Performance?
+		$('.taxrow').each(function() {
+			$(this).remove();
 
-$('.tax2-row, .tax1-row').each(function(){
-	if ($(this).val() != "") {
-    if (!a[$(this).val()]) {
-    	//alert($(this).val());
-        l++;
-        a[$(this).val()] = true;
-    }
-  } else {
-  	return;
-  }
+		});
+
+		$('.tax2-row, .tax1-row').each(function() {
+			if ($(this).val() != "") {
+				if (!a[$(this).val()]) {
+					//alert entered value
+					//alert($(this).val());
+
+					// add tax rows for unique tax entry - TODO: Performance?
+
+					var $newTaxSubtotalRow = $('<tr class="nodrag taxrow tax-subtotal"><td colspan="3" class="noline" style="cursor: default;"></td><td class="nodrag footer-labels"><textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal1" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td><td style="cursor: default;" class="nodrag"><input class="table-inputs tax-total" disabled="disabled" value="0"></td><td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td></tr>');
+
+					$trLast = $('#document-table').find("tr.taxrow:last");
+
+					$('#document-table .trBalance').before($newTaxSubtotalRow);
+
+					//remove all tax rows - TODO: Performance?
+
+					$(".tax-row").i18n();
+
+					$("#currency").trigger("change");
+
+					$("#tax").trigger("change");
+
+					l++;
+					a[$(this).val()] = true;
+				}
+			} else {
+				return;
+			}
+		});
+		//no. of unique tax-entries in the columns tax1-row and tax2-row
+		//alert(l);
+	});
 });
-
-alert(l);
-}
-
 
