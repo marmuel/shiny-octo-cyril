@@ -30,7 +30,6 @@ $(document).ready(function() {
 	$('#document-tocompany').trigger('autosize.destroy');
 	$('#document-type').trigger('autosize.destroy');
 	//$('.document-inputs-googlesearch').trigger('autosize.destroy');
-	
 
 });
 
@@ -87,7 +86,7 @@ $("#document-table").on('click', ".remove-row", function() {
 
 // Discount or not?
 $("#discount").change(function() {
-	
+
 	var dissettings = $("#discount").val();
 	var drow = $(".discount-row").parents('tr');
 	if (dissettings == "") {
@@ -113,14 +112,14 @@ $delbtnyes.on('click', function() {
 	// shipping costs
 	(srow).fadeIn();
 	//$("#document-table tbody .tax1-row, .tax2-row").trigger("change");
-	colspan ();
+	colspan();
 });
 $delbtnno.on('click', function() {
 	// no shipping costs
 	$(srow).fadeOut();
 	$(".shipping-total").val(0);
 	//$("#document-table tbody .tax1-row, .tax2-row").trigger("change");
-	colspan ();
+	colspan();
 });
 var $taxes = $('.taxes');
 $taxes.on('change', function() {
@@ -146,7 +145,7 @@ $taxes.on('change', function() {
 
 // add dynamically rows for taxes
 $('#tax').change(function() {
-	
+
 	var $tax1 = $('#document-table').find('tbody tr').find('td:nth-child(5)'), $tax1th = $('#document-table').find('thead th:nth-child(5)'), $tax2 = $('#document-table').find('tbody tr').find('td:nth-child(6)'), $tax2th = $('#document-table').find('thead th:nth-child(6)'), $v = $(this).val();
 
 	if ($v == 'tax-none') {
@@ -175,8 +174,8 @@ $('#tax').change(function() {
 		$tax2th.fadeIn();
 		$('.tax2-column input').val('');
 	}
-   delTaxSubtotalRows ();
-   colspan ();
+	delTaxSubtotalRows();
+	colspan();
 });
 
 // disable 'taxes 2' for e.g. German Market
@@ -199,24 +198,21 @@ $('#currency').change(function() {
 	$('.discount-row-label').val(cur);
 });
 
-
 // set correct colpsan for tfoot (subtotals) depending on count of Tax columns
-function colspan () {
+function colspan() {
 
 	var ts = $("#tax option:selected").index();
 	var colspan = ts + 1;
-	if (ts=="0"){
+	if (ts == "0") {
 		$('.footer-labels').attr('colspan', 1);
-	} 
-	if (ts=="1"){
+	}
+	if (ts == "1") {
 		$('.footer-labels').attr('colspan', 2);
-	} 
-	if (ts=="2"){
+	}
+	if (ts == "2") {
 		$('.footer-labels').attr('colspan', 3);
-	} 	
+	}
 }
-
-
 
 // autocomplete feature
 // of the Google Places API to help users fill in the information.
@@ -331,75 +327,55 @@ function geolocate() {
 	}
 }
 
-	$("#document-table tbody .tax1-row, .tax2-row").on("change", function() {
-		var a = {}, l = 0;
-        // remove all tax rows - TODO: Performance?
-		delTaxSubtotalRows ();
 
-		$('.tax2-row, .tax1-row').each(function() {
-			if ($(this).val() != "") {
-				
-				if (!a[$(this).val()]) {
-					//alert entered value
-					//alert($(this).val());
+$("#document-table tbody .tax1-row, .tax2-row").on("change", function() {
+	var a = {}, l = 0;
+	// remove all tax rows - TODO: Performance?
+	delTaxSubtotalRows();
 
-					// add tax rows for unique tax entry - TODO: Performance?
-					// set colspan to newTaxSubtotalRow depending on count of Tax columns
-					var taxPercent = $(this).val();
-					
-					var $newTaxSubtotalRow = $('<tr class="nodrag taxrow tax-subtotal"><td colspan="3" class="noline" style="cursor: default;"></td><td class="nodrag footer-labels"><textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal1" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td><td style="cursor: default;" class="nodrag"><input class="table-inputs tax-total" disabled="disabled" value="0"></td><td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td></tr>');
-
-					$trLast = $('#document-table').find("tr.taxrow:last");
-					
-					// detect if shipping-row exists (for the correct position of taxSubtotalRow)
-					
-                    var preRow = '';
-					if ($(".trShipping").is(":visible")) {
-						
-						var preRow = '#document-table .trShipping';
-					} else {	
-						
-						var preRow = '#document-table .trBalance';
-					}	
-					
-				
-					
-    
-					$(preRow).before($newTaxSubtotalRow);
-                    colspan ();
-					//remove all tax rows - TODO: Performance?
-
-					
-					
-						// add entered value as labe to tax-subtotal label
-					
-					//var taxTranslation = $(".tax-row").i18n();
-					//var txt = $('textarea.tax-row').text();
-					//var newTxt = txt + ' ' + taxPercent ;
-					//console.log(newTxt);					
-					//$('.tax-row').val(newTxt);
-
-					$("#currency").trigger("change");
-					
-					$(".tax-row").i18n();
-					
-
-					l++;
-					a[$(this).val()] = true;
-				}
+	$('.tax2-row, .tax1-row').each(function() {
+		if ($(this).val() != "") {
+            taxPercent = "";
+            taxSelector = ""; 
+			var taxPercent = $(this).val();
+			var taxSelector = "tax" + taxPercent
+			if ($('#document-table tfoot tr').hasClass(taxSelector)) {
+				//taxSelector class is available
+				console.log('ist schon da');
+				return false;
 			} else {
-				return;
-			}
-		});
-		//no. of unique tax-entries in the columns tax1-row and tax2-row
-		//alert(l);
-	});
+				//taxSelector class is not available
 
+				var $newTaxSubtotalRow = $('<tr class="nodrag taxrow tax-subtotal tax' + taxPercent + '"><td colspan="3" class="noline" style="cursor: default;"></td><td class="nodrag footer-labels"><textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal1" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td><td style="cursor: default;" class="nodrag"><input class="table-inputs tax-total" disabled="disabled" value="0"></td><td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td></tr>');              
+				$trLast = $('#document-table').find("tr.taxrow:last");
+				// detect if shipping-row exists (for the correct position of taxSubtotalRow)
+				var preRow = '';
+				if ($(".trShipping").is(":visible")) {
+					var preRow = '#document-table .trShipping';
+				} else {
+					var preRow = '#document-table .trBalance';
+				}
+				$(preRow).before($newTaxSubtotalRow);
+				
+				$(".tax-row:last").i18n();	
+				txt = $('textarea.tax-row:last').text();
+				newTxt = txt + " " + taxPercent + " %";
+				colspan();
+				$("#currency").trigger("change");
+				$('textarea.tax-row:last').text(newTxt);
+				console.log(txt);
+			}
+
+		} else {
+			return;
+		}
+	});
+});
 
 // remove all TaxSubtotalRows
-function delTaxSubtotalRows (){
-$('.taxrow').each(function() {
-			$(this).remove();
+function delTaxSubtotalRows() {
+	$('.taxrow').each(function() {
+		$(this).remove();
 
-		});
+	});
 }
