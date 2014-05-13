@@ -172,7 +172,7 @@ $('#tax').change(function() {
 		$tax2th.fadeIn();
 		$('.tax2-column input').val('');
 	}
-
+   delTaxSubtotalRows ();
 });
 
 // disable 'taxes 2' for e.g. German Market
@@ -309,14 +309,14 @@ function geolocate() {
 	}
 }
 
-$(function() {
+
 	$("#document-table tbody .tax1-row, .tax2-row").on("change", function() {
+		
+		
+		
 		var a = {}, l = 0;
         // remove all tax rows - TODO: Performance?
-		$('.taxrow').each(function() {
-			$(this).remove();
-
-		});
+		delTaxSubtotalRows ();
 
 		$('.tax2-row, .tax1-row').each(function() {
 			if ($(this).val() != "") {
@@ -325,8 +325,11 @@ $(function() {
 					//alert($(this).val());
 
 					// add tax rows for unique tax entry - TODO: Performance?
-
-					var $newTaxSubtotalRow = $('<tr class="nodrag taxrow tax-subtotal"><td colspan="3" class="noline" style="cursor: default;"></td><td class="nodrag footer-labels"><textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal1" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td><td style="cursor: default;" class="nodrag"><input class="table-inputs tax-total" disabled="disabled" value="0"></td><td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td></tr>');
+					// set colspan to newTaxSubtotalRow depending on count of columns
+					var taxessettings = $("#tax option:selected").index();
+					
+					var colspan = taxessettings + 1;
+					var $newTaxSubtotalRow = $('<tr class="nodrag taxrow tax-subtotal"><td colspan="3" class="noline" style="cursor: default;"></td><td class="nodrag footer-labels" colspan="' + colspan + '"><textarea type="text" class="table-inputs tax-row" data-i18n="table.taxtotal1" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;"></textarea></td><td style="cursor: default;" class="nodrag"><input class="table-inputs tax-total" disabled="disabled" value="0"></td><td style="cursor: default;" class="nodrag currency-column"><textarea type="text" class="table-inputs currency-label" style="cursor: default; overflow: hidden; word-wrap: break-word; resize: none; height: 38px;" disabled="disabled"></textarea></td></tr>');
 
 					$trLast = $('#document-table').find("tr.taxrow:last");
 
@@ -338,7 +341,7 @@ $(function() {
 
 					$("#currency").trigger("change");
 
-					$("#tax").trigger("change");
+					//$("#tax").trigger("change");
 
 					l++;
 					a[$(this).val()] = true;
@@ -350,5 +353,11 @@ $(function() {
 		//no. of unique tax-entries in the columns tax1-row and tax2-row
 		//alert(l);
 	});
-});
 
+// remove all TaxSubtotalRows
+function delTaxSubtotalRows (){
+$('.taxrow').each(function() {
+			$(this).remove();
+
+		});
+}
