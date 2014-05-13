@@ -311,6 +311,7 @@ function geolocate() {
 	}
 }
 
+// count no of unique taxes in the columns tax2- and tax1-row
 function c(){
 var a = {}, l = 0;
 
