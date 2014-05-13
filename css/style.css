@@ -212,7 +212,7 @@ box-shadow: none;
 .noline{
 	border-top: 0px !important;
 }
-.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover, .grossprice:hover{
+.sub-total:hover, .noline:hover, .tax-total:hover, .currency-label:hover, .balance:hover, .grossprice:hover, .discount-total:hover{
 	background-color: #fff;
 }
 

@@ -116,7 +116,7 @@
 						</li>
 						<li>
 							<label for="discount" data-i18n="sidebarbutton.discountlabel"></label>
-							<input id="discount" class="form-control discount">
+							<input id="discount" class="form-control discount" type="number">
 						</li>
 						<li>
 							<label for="shipping" data-i18n="sidebarbutton.shippinglabel"></label>
@@ -253,7 +253,7 @@
 										<td colspan="3" style="cursor: default;" class="nodrag noline"></td><td class="nodrag footer-labels">										<textarea type="text" class="table-inputs discount-row" data-i18n="table.discount" style="cursor: default;">Discount</textarea></td>
 								
 										<td style="cursor: default;" class="nodrag">
-										<input class="table-inputs discount-total" value="0">
+										<input class="table-inputs discount-total" value="0" disabled="disabled">
 										</td>
 										<td style="cursor: default;" class="nodrag ">										<textarea type="text" class="table-inputs discount-row-label" style="cursor: default;" disabled="disabled"></textarea></td>
 									</tr>
@@ -269,7 +269,7 @@
 									</tr>	-->							
 									<tr class="nodrag trShipping">
 										<td colspan="3" style="cursor: default;" class="nodrag noline"></td>
-										<td class="nodrag footlabels">	<textarea type="text" class="table-inputs shipping-row" data-i18n="table.shipping" style="cursor: default;">Shipping</textarea></td>
+										<td class="nodrag footer-labels">	<textarea type="text" class="table-inputs shipping-row" data-i18n="table.shipping" style="cursor: default;">Shipping</textarea></td>
 								
 										<td style="cursor: default;" class="nodrag">
 										<input class="table-inputs shipping-total" value="0">
@@ -310,7 +310,7 @@
 
 							</table>
 							<div class="col-md-12">
-								<textarea id="document-terms" class="document-inputs address" data-i18n="document.termslabel"></textarea>
+								<textarea id="document-terms" class="document-inputs address" data-i18n="[placeholder]document.termslabel"></textarea>
 							</div>
 
 						</div>
