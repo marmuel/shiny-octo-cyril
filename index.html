@@ -22,8 +22,6 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/jquery.ezdz.min.css">
-	
-
 	</head>
 
 	<body onload="initialize()">
@@ -42,9 +40,6 @@
 						</li>
 						<li>
 							<a href="#" data-i18n="nav.settings">Settings</a>
-						</li>
-						<li>
-							<a href="#" data-i18n="nav.help">Help</a>
 						</li>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#" data-i18n="nav.language"> Language <b class="caret"></b></a>
@@ -84,7 +79,7 @@
 							</button>
 						</li>
 						<li>
-							<button id="button-email" class="btn btn-lg btn-success">
+							<button id="button-email" class="btn btn-lg btn-success" data-toggle="modal" data-target="#modal-email">
 								<span class="glyphicon glyphicon-envelope" data-i18n="sidebarbutton.email"></span>
 							</button>
 						</li>
@@ -92,15 +87,10 @@
 					</ul>
 					<ul class="nav nav-sidebar actionbuttons">
 						<li>
-							<label for="googlesearch" data-i18n="sidebarbutton.googlesearch"></label>
-							<div class="btn-group btn-group-googlesearch googlesearch" data-toggle="buttons" id="googlesearch">
-								<label class="btn btn-default googlesearch-radio" id="searchno">
-									<input type="radio" class="btn">
-									<span data-i18n="sidebarbutton.searchno"></span> </label>
-								<label class="btn btn-default googlesearch-radio" id="searchyes">
-									<input type="radio" class="btn">
-									<span data-i18n="sidebarbutton.searchyes"></span> </label>
-							</div>
+							
+							<button id="googlesearch" class="btn btn-lg btn-inverse">
+								<span class="glyphicon glyphicon-search" data-i18n="sidebarbutton.googlesearch" ></span>
+							</button>
 						</li>
 						<li>
 							<label for="currency" data-i18n="sidebarbutton.currencylabel"></label>
@@ -172,12 +162,12 @@
 								<textarea id="document-tocompany" class="document-inputs" data-i18n="document.tocompany"></textarea>
 								<div id="googleaddress">
 
-									<div id="locationField" class="right-inner-addon">
+									<div id="locationField" class="right-inner-addon" style="display: none">
                                         <i class="icon-search"></i>
 										<input id="autocomplete" class="form-control" data-i18n="[placeholder]document.enteraddress" onFocus="geolocate()" type="search">
 									</div>
 
-									<table id="addressresult">
+									<table id="addressresult" style="display: none">
 										<tr class="nodrag">
 											<td class="streetno">											<textarea class="document-inputs-googlesearch" id="street_number"
 											disabled="true" data-i18n="[placeholder]document.streetno">
@@ -224,8 +214,8 @@
 									<textarea id="document-date-label" class="document-inputs label-right" data-i18n="document.datelabel"></textarea>
 								</div>
 								<div class="col-md-6">
-									<textarea id="document-no" class="document-inputs">12345678</textarea>
-									<textarea id="document-date" class="document-inputs"></textarea>
+									<textarea id="document-no" class="document-inputs" placeholder="12345678"></textarea>
+									<input id="document-date" class="document-inputs">
 								</div>
 							</div>
 
@@ -327,6 +317,23 @@
 						</div>
 					</div>
 				</div>
+<div class="modal fade" id="modal-email">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" data-i18n="table.product"></h4>
+      </div>
+      <div class="modal-body">
+        <p data-i18n=".modalemail.email"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 			</div>
 		</div>
 		<!-- Latest compiled and minified jQuery -->

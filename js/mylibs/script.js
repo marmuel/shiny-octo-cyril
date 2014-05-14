@@ -5,7 +5,6 @@ $(document).ready(function() {
 
 	// trigger default values
 	$('#shippingno').trigger('click');
-	$('#searchno').trigger('click');
 	$('.tax-subtotal').hide();
 	$("#tax").trigger("change");
 	$("#currency").trigger("change");
@@ -218,27 +217,21 @@ function colspan() {
 // of the Google Places API to help users fill in the information.
 
 // Use Google Search or not
-var $gbtnyes = $('#searchyes');
-var $gbtnno = $('#searchno');
+var $googlesearch = $('#googlesearch');
 var gbtnsearchagain = $('.address-controls');
 var locationfield = $('#locationField');
 var gaddressResult = $('#addressresult');
 var manaddress = $("#document-to");
 
-$gbtnyes.on('click', function() {
+$googlesearch.on('click', function() {
+	// Init Modal Email-Dialog Translation 
 	// google address search
 	(manaddress).hide();
+	(gaddressResult).hide();
 	(gbtnsearchagain).hide();
 	$('#autocomplete').val('');
 	(locationfield).show();
-	(gaddressResult).hide();
 
-});
-$gbtnno.on('click', function() {
-	// no google address search
-	(manaddress).show();
-	(locationfield).hide();
-	(gaddressResult).hide();
 });
 
 // Search Again
@@ -338,7 +331,7 @@ $("#document-table tbody .tax1-row, .tax2-row").on("change", function() {
             taxPercent = "";
             taxSelector = ""; 
 			var taxPercent = $(this).val();
-			var taxSelector = "tax" + taxPercent
+			var taxSelector = "tax" + taxPercent;
 			if ($('#document-table tfoot tr').hasClass(taxSelector)) {
 				//taxSelector class is available
 				console.log('ist schon da');
@@ -379,3 +372,5 @@ function delTaxSubtotalRows() {
 
 	});
 }
+
+

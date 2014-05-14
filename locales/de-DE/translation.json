@@ -5,8 +5,7 @@
 	"nav": {
 		"invoice": "Rechnung",
 		"settings": "Einstellungen",
-		"language": "Sprache",
-		"help": "Hilfe"
+		"language": "Sprache"
 	},
 	"sidebarbutton": {
 		"preview": " Vorschau",
@@ -25,9 +24,10 @@
 		"tax1": "Mit MwSt.",
 		"tax2": "",
 		"dropbox": " Dropbox",
-		"googlesearch": "Google Adresssuche nutzen",
+		"googlesearch": " Adresse",
 		"searchno": "Nein",
 		"searchyes": "Ja"
+		
 	},
 	"document": {
 		"type": "Rechnung",

@@ -5,8 +5,7 @@
 	"nav": {
 		"invoice": "Invoice",
 		"settings": "Settings",
-		"country": "Language",
-		"help": "Help"
+		"country": "Language"
 	},
 	"sidebarbutton": {
 		"preview": " Preview",
@@ -25,8 +24,8 @@
 		"tax1": "1 Column",
 		"tax2": "2 Columns",
 		"dropbox": " Dropbox",
-		"googlesearch": "Use Google Address Finder",
-		"searchno": "No",
+	"googlesearch": " Address",
+			"searchno": "No",
 		"searchyes": "Yes"
 	},
 	"document": {

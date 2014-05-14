@@ -68,10 +68,11 @@ p, div {
 	color: #fff;
 	background-color: #428bca;
 }
-#button-preview, #button-pdf, #button-email, #button-default, #button-dropbox {
+#button-preview, #button-pdf, #button-email, #button-default, #button-dropbox, #googlesearch {
 	width: 80%;
 	margin-bottom: 20px;
 }
+
 .actionbuttons {
 	margin-left: 10%;
 }
@@ -96,6 +97,25 @@ p, div {
 span.dropbox{
 	background: url('../img/dropbox-20.png') no-repeat; 
 	padding: 0px 0px 0px 25px;
+}
+.btn-inverse {
+color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color: #363636;
+background-image: -moz-linear-gradient(top, #444444, #222222);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+background-image: -webkit-linear-gradient(top, #444444, #222222);
+background-image: -o-linear-gradient(top, #444444, #222222);
+background-image: linear-gradient(to bottom, #444444, #222222);
+background-repeat: repeat-x;
+border-color: #222222 #222222 #000000;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-inverse:hover {
+color: #ffffff;
+background-color: #222222;
 }
 /*
  * Main content
